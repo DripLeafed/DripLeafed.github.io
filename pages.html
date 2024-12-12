@@ -48,13 +48,15 @@
     <p>Click on the buttons inside the tabbed menu:</p>
     
     <div class="tab">
-      <button class="tablinks" onclick="openCity(event, 'Small Hut')">Small Hut</button>
-      <button class="tablinks" onclick="openCity(event, 'Paris')">Paris</button>
-      <button class="tablinks" onclick="openCity(event, 'Tokyo')">Tokyo</button>
+      <button class="tablinks" onclick="openTab(event, 'Small Hut')">Small Hut</button>
+      <button class="tablinks" onclick="openTab(event, 'Paris')">Paris</button>
+      <button class="tablinks" onclick="openTab(event, 'Tokyo')">Tokyo</button>
     </div>
+
+    <link rel="stylesheet" href="/Styling/styles.css">
     
     <div id="Small Hut" class="tabcontent">
-        <h3>Small Hut</h3>
+        <h3 id="Sh">Small Hut</h3>
         <div id="Small Hut">
             <button id="firebtn">Stoke Fire</button>
             <h4 id="firetext">Fire Health: -</h3>
@@ -96,20 +98,55 @@
         </div>
     </div>
     
-    <div id="Paris" class="tabcontent">
-        <h3>Dark Forest</h3>
+    <div id="Dark Forest" class="tabcontent">
+        <h3 id="Df">Dark Forest</h3>
         <div id="Dark Forest">
-            *code
+          <h3 id="woodtext">You have - wood.</h3>
+          <button id="woodbtn">Get Wood</button>
+          <script>
+              var wood = 0
+              woodtext = document.getElementById("woodtext")
+              woodbtn = document.getElementById("woodbtn")
+  
+              woodtext.innerHTML = "You have " + wood + " wood."
+              woodtext.style.textAlign = 'center'
+  
+              function sleep(ms) {
+                  return new Promise(resolve => setTimeout(resolve, ms))
+              }
+  
+              woodbtn.addEventListener("click", function() {
+                  onClick("wood")
+              })
+  
+              function onClick(btn) {
+                  if (btn == "wood") {
+                      wood += 3
+                      woodtext.innerHTML = "You have " + wood + " wood."
+                      woodbtn.disabled = true
+                      sleep(3000).then(() => { woodbtn.disabled = false })
+                  } else if (btn == "fire" && wood >= 2 && firehealth < 100) {
+                      firehealth += 15
+                      wood -= 2
+                      if (firehealth > 100) {
+                          firehealth = 100
+                      }
+                      woodtext.innerHTML = "You have " + wood + " wood."
+                      firetext.innerHTML = "Fire Health: " + firehealth
+                      firebtn.disabled = true
+                      sleep(1500).then(() => { firebtn.disabled = false })
+                  }
+              }
+          </script>
         </div>
     </div>
     
-    <div id="Tokyo" class="tabcontent">
-      <h3>Tokyo</h3>
-      <p>Tokyo is the capital of Japan.</p>
+    <div id="Coming Soon..." class="tabcontent">
+      <h3>Coming Soon...</h3>
     </div>
     
     <script>
-    function openCity(evt, cityName) {
+    function openTab(evt, cityName) {
       var i, tabcontent, tablinks;
       tabcontent = document.getElementsByClassName("tabcontent");
       for (i = 0; i < tabcontent.length; i++) {

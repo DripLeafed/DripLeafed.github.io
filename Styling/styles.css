@@ -1,11 +1,11 @@
-h3 {
+#woodtext {
     color: darkgoldenrod;
 }
 #woodbtn {
     background-color: darkgoldenrod;
     border-color: darkgoldenrod;
 }
-h4 {
+#firetext {
     color: orangered;
 }
 #firebtn {
