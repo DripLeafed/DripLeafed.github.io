@@ -1,0 +1,42 @@
+<html>
+    <body>
+        <h3 id="woodtext">You have - wood.</h3>
+        <button id="woodbtn">Get Wood</button>
+        <script>
+            var wood = 0
+            woodtext = document.getElementById("woodtext")
+            woodbtn = document.getElementById("woodbtn")
+
+            woodtext.innerHTML = "You have " + wood + " wood."
+            woodtext.style.textAlign = 'center'
+
+            function sleep(ms) {
+                return new Promise(resolve => setTimeout(resolve, ms))
+            }
+
+            woodbtn.addEventListener("click", function() {
+                onClick("wood")
+            })
+
+            function onClick(btn) {
+                if (btn == "wood") {
+                    wood += 3
+                    woodtext.innerHTML = "You have " + wood + " wood."
+                    woodbtn.disabled = true
+                    sleep(3000).then(() => { woodbtn.disabled = false })
+                } else if (btn == "fire" && wood >= 2 && firehealth < 100) {
+                    firehealth += 15
+                    wood -= 2
+                    if (firehealth > 100) {
+                        firehealth = 100
+                    }
+                    woodtext.innerHTML = "You have " + wood + " wood."
+                    firetext.innerHTML = "Fire Health: " + firehealth
+                    firebtn.disabled = true
+                    sleep(1500).then(() => { firebtn.disabled = false })
+                }
+            }
+        </script>
+        <link rel="stylesheet" href="/Styling/styles.css">
+    </body>
+</html>
