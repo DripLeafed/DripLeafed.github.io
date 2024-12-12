@@ -74,12 +74,6 @@
                     firehealth -= 10
                     firetext.innerHTML = "Fire Health: " + firehealth
                     if (firehealth <= 0) {
-                        woodtext.innerHTML = ""
-                        firetext.innerHTML = ""
-                        woodbtn.innerHTML = "You"
-                        firebtn.innerHTML = "Died"
-                        woodbtn.style.fontWeight = 'bold'
-                        firebtn.style.fontWeight = 'bold'
                         document.body.style.backgroundColor = "red"
                         sleep(500).then(() => {
                             if (confirm("You Died.\nRestarting.")) {
