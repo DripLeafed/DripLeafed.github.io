@@ -113,13 +113,21 @@
       <h3 id="Bs">Building Station</h3>
       <div id="Building Station">
         <h3 id="populationtext">Population: -</h3>
+        <h3 id="maxpopulationtext">Max Population: -</h3>
+        <h3 id="huttext">Huts: -</h3>
         <button id="hutbtn">Build Hut (50 Wood)</button>
         <script>
           var population = 0
           var maxpopulation = 0
           var huts = 0
           populationtext = document.getElementById("populationtext")
+          populationtext = document.getElementById("maxpopulationtext")
+          populationtext = document.getElementById("huttext")
           hutbtn = document.getElementById("hutbtn")
+
+          populationtext.innerHTML = "Population: " + population
+          maxpopulationtext.innerHTML = "Max Population: " + maxpopulation
+          huttext.innerHTML = "Huts: " + huts
 
           hutbtn.addEventListener("click", function() {
             onClick("hut")
@@ -150,6 +158,9 @@
                     maxpopulation += 5
                     huts += 1
                     woodtext.innerHTML = "You have " + wood + " wood."
+                    populationtext.innerHTML = "Population: " + population
+                    maxpopulationtext.innerHTML = "Max Population: " + maxpopulation
+                    huttext.innerHTML = "Huts: " + huts
                     hutbtn.disabled = true
                     sleep(15000).then(() => {hutbtn.disabled = false })
                   }
