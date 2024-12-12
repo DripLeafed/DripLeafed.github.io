@@ -47,7 +47,7 @@
     <div class="tab">
       <button class="tablinks" onclick="openTab(event, 'Small Hut')">Small Hut</button>
       <button class="tablinks" onclick="openTab(event, 'Dark Forest')">Dark Forest</button>
-      <button class="tablinks" onclick="openTab(event, 'Coming Soon...')">Coming Soon...</button>
+      <button class="tablinks" onclick="openTab(event, 'Building Station')">Building Station</button>
     </div>
 
     <link rel="stylesheet" href="/Styling/styles.css">
@@ -102,14 +102,33 @@
               woodtext.innerHTML = "You have " + wood + " wood."
               woodtext.style.textAlign = 'center'
   
-              function sleep(ms) {
-                  return new Promise(resolve => setTimeout(resolve, ms))
-              }
-  
               woodbtn.addEventListener("click", function() {
                   onClick("wood")
               })
-  
+          </script>
+        </div>
+    </div>
+    
+    <div id="Building Station" class="tabcontent">
+      <h3 id="Bs">Building Station</h3>
+      <div id="Building Station">
+        <h3 id="populationtext">Population: -</h3>
+        <button id="hutbtn">Build Hut (50 Wood)</button>
+        <script>
+          var population = 0
+          var maxpopulation = 0
+          var huts = 0
+          populationtext = document.getElementById("populationtext")
+          hutbtn = document.getElementById("hutbtn")
+
+          hutbtn.addEventListener("click", function() {
+            onClick("hut")
+          })
+        </script>
+      </div>
+    </div>
+    
+    <script>
               function onClick(btn) {
                   if (btn == "wood") {
                       wood += 3
@@ -126,16 +145,20 @@
                       firetext.innerHTML = "Fire Health: " + firehealth
                       firebtn.disabled = true
                       sleep(1500).then(() => { firebtn.disabled = false })
+                  } else if (btn == "hut" && wood >= 50) {
+                    wood -= 50
+                    maxpopulation += 5
+                    huts += 1
+                    woodtext.innerHTML = "You have " + wood + " wood."
+                    hutbtn.disabled = true
+                    sleep(15000).then(() => {hutbtn.disabled = false })
                   }
               }
-          </script>
-        </div>
-    </div>
-    
-    <div id="Coming Soon..." class="tabcontent">
-      <h3>Coming Soon...</h3>
-    </div>
-    
+              function sleep(ms) {
+                  return new Promise(resolve => setTimeout(resolve, ms))
+              }
+    </script>
+
     <script>
     function openTab(evt, cityName) {
       var i, tabcontent, tablinks;
