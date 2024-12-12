@@ -148,6 +148,7 @@
                   } else if (btn == "fire" && wood >= 2 && firehealth < 100) {
                       firehealth += 15
                       wood -= 2
+                      document.getElementById("smallhuttab").innerHTML = "Small Hut (" + firehealth + ")"
                       if (firehealth > 100) {
                           firehealth = 100
                       }
