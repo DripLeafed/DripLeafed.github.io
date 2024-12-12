@@ -168,6 +168,14 @@
               function sleep(ms) {
                   return new Promise(resolve => setTimeout(resolve, ms))
               }
+              function addpopulation() {
+                if (population < maxpopulation) {
+                  population += 1
+                } else {
+                  population = maxpopulation
+                }
+              }
+              setInterval(addpopulation, 60000)
     </script>
 
     <script>
