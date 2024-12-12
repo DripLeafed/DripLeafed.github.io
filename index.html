@@ -45,7 +45,7 @@
     <body>
     
     <div class="tab">
-      <button class="tablinks" onclick="openTab(event, 'Small Hut')">Small Hut</button>
+      <button id="smallhuttab" class="tablinks" onclick="openTab(event, 'Small Hut')">Small Hut (-)</button>
       <button class="tablinks" onclick="openTab(event, 'Dark Forest')">Dark Forest</button>
       <button class="tablinks" onclick="openTab(event, 'Building Station')">Building Station</button>
     </div>
@@ -65,6 +65,7 @@
     
                 firetext.style.textAlign = 'center'
                 firetext.innerHTML = "Fire Health: " + firehealth
+                document.getElementById("smallhuttab").innerHTML = "Small Hut (" + firehealth + ")"
     
                 firebtn.addEventListener("click", function() {
                     onClick("fire")
@@ -73,6 +74,7 @@
                 function drainFireHealth() {
                     firehealth -= 10
                     firetext.innerHTML = "Fire Health: " + firehealth
+                    document.getElementById("smallhuttab").innerHTML = "Small Hut (" + firehealth + ")"
                     if (firehealth <= 0) {
                         document.body.style.backgroundColor = "red"
                         sleep(500).then(() => {
