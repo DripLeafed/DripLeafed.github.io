@@ -12,3 +12,8 @@
     background-color: orangered;
     border-color: orangered;
 }
+button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+  }
