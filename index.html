@@ -174,8 +174,10 @@
               function addpopulation() {
                 if (population < maxpopulation) {
                   population += 1
+                  populationtext.innerHTML = "Population: " + population
                 } else {
                   population = maxpopulation
+                  populationtext.innerHTML = "Population: " + population
                 }
               }
               setInterval(addpopulation, 60000)
