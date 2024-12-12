@@ -92,7 +92,7 @@
     <div id="Dark Forest" class="tabcontent">
         <h3 id="Df">Dark Forest</h3>
         <div id="Dark Forest">
-          <button id="woodbtn">Get Wood</button>
+          <button id="woodbtn">Collect Wood</button>
           <h3 id="woodtext">You have - wood.</h3>
           <script>
               var wood = 0
@@ -139,7 +139,7 @@
     <script>
               function onClick(btn) {
                   if (btn == "wood") {
-                      wood += 3
+                      wood += 4
                       woodtext.innerHTML = "You have " + wood + " wood."
                       woodbtn.disabled = true
                       sleep(3000).then(() => { woodbtn.disabled = false })
