@@ -129,7 +129,7 @@
         <script>
             setInterval(addpopulation, 30000)
             setInterval(drainFireHealth, 3500)
-            
+
             const tabs = [
                 document.getElementById("tab1"),
                 document.getElementById("tab2"),
@@ -161,21 +161,21 @@
             })
             function changeContent() {
                 if (tabButtons[0].className == "tabButtonON") {
-                    tabs[1].hidden = true
-                    tabs[0].hidden = false
-                    tabs[2].hidden = true
+                    tabs[1].style.visibility = true
+                    tabs[0].style.visibility = false
+                    tabs[2].style.visibility = true
                 } else if (tabButtons[1].className == "tabButtonON") {
-                    tabs[0].hidden = true
-                    tabs[1].hidden = false
-                    tabs[2].hidden = true
+                    tabs[0].style.visibility = true
+                    tabs[1].style.visibility = false
+                    tabs[2].style.visibility = true
                 } else if (tabButtons[2].className == "tabButtonON") {
-                    tabs[0].hidden = true
-                    tabs[1].hidden = true
-                    tabs[2].hidden = false
+                    tabs[0].style.visibility = true
+                    tabs[1].style.visibility = true
+                    tabs[2].style.visibility = false
                 } else {
-                    tabs[0].hidden = true
-                    tabs[1].hidden = true
-                    tabs[2].hidden = true
+                    tabs[0].style.visibility = true
+                    tabs[1].style.visibility = true
+                    tabs[2].style.visibility = true
                 }
             }
         </script>
