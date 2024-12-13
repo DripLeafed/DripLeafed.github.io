@@ -36,8 +36,11 @@
                 woodtext.innerHTML = "You have " + wood + " wood."
             }
             function skrHps() {
-                if (firehealth <= 85) {
+                if (firehealth <= 85 && wood >= 2) {
                     firehealth += 15 * stokers
+                    if (firehealth > 100) {
+                        firehealth = 100
+                    }
                     wood -= 2 * stokers
                     woodtext.innerHTML = "You have " + wood + " wood."
                     firetext.innerHTML = "Fire Health: " + firehealth
