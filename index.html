@@ -18,10 +18,10 @@
                     <h4 id="huttext">Huts: -</h3>
                     <button id="hutbtn">Build Hut (50 Wood)</button>
                     <h4 id="lbgtext">Lumberjacks: (-)</h4>
-                    <button id="lbghirebtn" onclick="hireLumberjack">Hire</button>
+                    <button id="lbghirebtn">Hire</button>
                     <button id="lbgfirebtn">Fire</button>
                     <h4 id="skrtext">Stokers: (-)</h4>
-                    <button id="skrhirebtn" onclick="hireStoker">Hire</button>
+                    <button id="skrhirebtn">Hire</button>
                     <button id="skrfirebtn">Fire</button>
             </div>
         </div>
@@ -32,16 +32,18 @@
         <script>
             var lumberjacks = 0
             var stokers = 0
-            function hireLumberjack() {
+            document.getElementById("lbghirebtn").addEventListener("click", function() {
                 lumberjacks += 1
                 population -= 1
                 document.getElementById("lbgtext").innerHTML = "Lumberjacks: (" + lumberjacks + ")"
-            }
-            function hireStoker() {
+                document.getElementById("populationtext").innerHTML = "Population: " + population
+            })
+            document.getElementById("skrhirebtn").addEventListener("click", function() {
                 stokers += 1
                 population -= 1
                 document.getElementById("skrtext").innerHTML = "Stokers: (" + stokers + ")"
-            }
+                document.getElementById("populationtext").innerHTML = "Population: " + population
+            })
             // Fire
             var firehealth = 100
                     firetext = document.getElementById("firetext")
