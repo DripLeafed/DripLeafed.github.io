@@ -50,7 +50,7 @@
             var lumberjacks = 0
             var stokers = 0
             document.getElementById("lbghirebtn").addEventListener("click", function() {
-                if (!population + lumberjacks + stokers >= maxpopulation) {
+                if ((population + lumberjacks + stokers) <= maxpopulation) {
                     if (population > 0) {
                         lumberjacks += 1
                         population -= 1
@@ -68,7 +68,7 @@
                 }
             })
             document.getElementById("skrhirebtn").addEventListener("click", function() {
-                if (!population + lumberjacks + stokers >= maxpopulation) {
+                if ((population + lumberjacks + stokers) < maxpopulation) {
                     if (population > 0) {
                         stokers += 1
                         population -= 1
@@ -175,7 +175,7 @@
             }
             // Population
             function addpopulation() {
-            if ((population + lumberjacks + stokers) < maxpopulation) {
+            if ((population + lumberjacks + stokers) <= maxpopulation) {
                 population += 1
                 populationtext.innerHTML = "Population: " + population
               } else {
