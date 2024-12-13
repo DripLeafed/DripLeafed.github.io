@@ -178,7 +178,7 @@
             if ((population + lumberjacks + stokers) <= maxpopulation) {
                 population += 1
                 populationtext.innerHTML = "Population: " + population
-              } else {
+              } else if ((population + lumberjacks + stokers) >= maxpopulation){
                 population = maxpopulation
                 populationtext.innerHTML = "Population: " + population
               }
