@@ -12,3 +12,31 @@
     background-color: orangered;
     border-color: orangered;
 }
+
+body {font-family: Arial;}
+
+.tabContainer {
+    height: 540px;
+    padding: 10px;
+    margin: 0;
+    overflow: hidden;
+    border: 1px solid #ccc;
+    background-color: #f1f1f1;
+}
+.tabButton {
+    height: 50px;
+    width: 150px;
+    background-color: lightgrey;
+    border: 0px;
+    transition-duration: 1s;
+}
+.tabButtonON {
+    height: 50px;
+    width: 150px;
+    background-color: grey;
+    border: 0px;
+}
+.tabButton:hover {
+    background-color: grey;
+    transition-duration: 1s;
+}
