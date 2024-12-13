@@ -33,28 +33,36 @@
             var lumberjacks = 0
             var stokers = 0
             document.getElementById("lbghirebtn").addEventListener("click", function() {
-                lumberjacks += 1
-                population -= 1
-                document.getElementById("lbgtext").innerHTML = "Lumberjacks: (" + lumberjacks + ")"
-                document.getElementById("populationtext").innerHTML = "Population: " + population
+                if (population > 0) {
+                    lumberjacks += 1
+                    population -= 1
+                    document.getElementById("lbgtext").innerHTML = "Lumberjacks: (" + lumberjacks + ")"
+                    document.getElementById("populationtext").innerHTML = "Population: " + population
+                }
             })
             document.getElementById("lbgfirebtn").addEventListener("click", function() {
-                lumberjacks -= 1
-                population += 1
-                document.getElementById("lbgtext").innerHTML = "Lumberjacks: (" + lumberjacks + ")"
-                document.getElementById("populationtext").innerHTML = "Population: " + population
+                if (lumberjacks > 0) {
+                    lumberjacks -= 1
+                    population += 1
+                    document.getElementById("lbgtext").innerHTML = "Lumberjacks: (" + lumberjacks + ")"
+                    document.getElementById("populationtext").innerHTML = "Population: " + population
+                }
             })
             document.getElementById("skrhirebtn").addEventListener("click", function() {
-                stokers += 1
-                population -= 1
-                document.getElementById("skrtext").innerHTML = "Stokers: (" + stokers + ")"
-                document.getElementById("populationtext").innerHTML = "Population: " + population
+                if (population > 0) {
+                    stokers += 1
+                    population -= 1
+                    document.getElementById("skrtext").innerHTML = "Stokers: (" + stokers + ")"
+                    document.getElementById("populationtext").innerHTML = "Population: " + population
+                }
             })
             document.getElementById("skrfirebtn").addEventListener("click", function() {
-                stokers -= 1
-                population += 1
-                document.getElementById("skrtext").innerHTML = "Stokers: (" + stokers + ")"
-                document.getElementById("populationtext").innerHTML = "Population: " + population
+                if (stokers > 0) {
+                    stokers -= 1
+                    population += 1
+                    document.getElementById("skrtext").innerHTML = "Stokers: (" + stokers + ")"
+                    document.getElementById("populationtext").innerHTML = "Population: " + population
+                }
             })
             // Fire
             var firehealth = 100
