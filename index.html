@@ -48,35 +48,39 @@
             var lumberjacks = 0
             var stokers = 0
             document.getElementById("lbghirebtn").addEventListener("click", function() {
-                if (unpopulation > 0) {
-                    lumberjacks += 1
-                    unpopulation -= 1
-                    document.getElementById("lbgtext").innerHTML = "Lumberjacks: (" + lumberjacks + ")"
-                    document.getElementById("unpopulationtexxt").innerHTML = "Unemployed Population: " + unpopulation
+                if (!population + lumberjacks + stokers >= maxpopulation) {
+                    if (population > 0) {
+                        lumberjacks += 1
+                        population -= 1
+                        document.getElementById("lbgtext").innerHTML = "Lumberjacks: (" + lumberjacks + ")"
+                        document.getElementById("populationtext").innerHTML = "Population: " + population
+                    }
                 }
             })
             document.getElementById("lbgfirebtn").addEventListener("click", function() {
                 if (lumberjacks > 0) {
                     lumberjacks -= 1
-                    unpopulation += 1
+                    population += 1
                     document.getElementById("lbgtext").innerHTML = "Lumberjacks: (" + lumberjacks + ")"
-                    document.getElementById("unpopulationtexxt").innerHTML = "Unemployed Population: " + unpopulation
+                    document.getElementById("populationtext").innerHTML = "Population: " + population
                 }
             })
             document.getElementById("skrhirebtn").addEventListener("click", function() {
-                if (unpopulation > 0) {
-                    stokers += 1
-                    unpopulation -= 1
-                    document.getElementById("skrtext").innerHTML = "Stokers: (" + stokers + ")"
-                    document.getElementById("unpopulationtexxt").innerHTML = "Unemployed Population: " + unpopulation
+                if (!population + lumberjacks + stokers >= maxpopulation) {
+                    if (population > 0) {
+                        stokers += 1
+                        population -= 1
+                        document.getElementById("skrtext").innerHTML = "Stokers: (" + stokers + ")"
+                        document.getElementById("populationtext").innerHTML = "Population: " + population
+                    }
                 }
             })
             document.getElementById("skrfirebtn").addEventListener("click", function() {
                 if (stokers > 0) {
                     stokers -= 1
-                    unpopulation += 1
+                    population += 1
                     document.getElementById("skrtext").innerHTML = "Stokers: (" + stokers + ")"
-                    document.getElementById("unpopulationtexxt").innerHTML = "Unemployed Population: " + unpopulation
+                    document.getElementById("populationtext").innerHTML = "Population: " + population
                 }
             })
             // Fire
@@ -120,17 +124,14 @@
               })
             // Building Station
             var population = 0
-            var unpopulation = 0
                       var maxpopulation = 0
                       var huts = 0
                       populationtext = document.getElementById("populationtext")
-                      unpopulationtext = document.getElementById("unpopulationtext")
                       maxpopulationtext = document.getElementById("maxpopulationtext")
                       huttext = document.getElementById("huttext")
                       hutbtn = document.getElementById("hutbtn")
             
                       populationtext.innerHTML = "Population: " + population
-                      unpopulationtext.innerHTML = "Unemployed Population: " + unpopulation
                       maxpopulationtext.innerHTML = "Max Population: " + maxpopulation
                       huttext.innerHTML = "Huts: " + huts
             
@@ -161,7 +162,6 @@
                   huts += 1
                   woodtext.innerHTML = "You have " + wood + " wood."
                   populationtext.innerHTML = "Population: " + population
-                  unpopulationtext.innerHTML = "Unemployed Population: " + unpopulation
                   maxpopulationtext.innerHTML = "Max Population: " + maxpopulation
                   huttext.innerHTML = "Huts: " + huts
                   hutbtn.disabled = true
@@ -175,13 +175,10 @@
             function addpopulation() {
               if (population < maxpopulation) {
                 population += 1
-                unpopulation += 1
                 populationtext.innerHTML = "Population: " + population
-                unpopulationtext.innerHTML = "Unemployed Population: " + unpopulation
               } else {
                 population = maxpopulation
                 populationtext.innerHTML = "Population: " + population
-                unpopulationtext.innerHTML = "Unemployed Population: " + unpopulation
               }
             }
   </script>
