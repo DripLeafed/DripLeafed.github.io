@@ -30,6 +30,15 @@
         <button id="tabButton3" class="tabButton">Building Station</button>
 
         <script>
+            function lbgWps() {
+                wood += 0.2 * lumberjacks
+            }
+            function skrHps() {
+                firehealth += 15 * stokers
+                wood -= 2 * stokers
+            }
+            setInterval(lbgWps, 1000)
+            setInterval(skrHps, 1000)
             var lumberjacks = 0
             var stokers = 0
             document.getElementById("lbghirebtn").addEventListener("click", function() {
