@@ -13,9 +13,10 @@
             </div>
             <div id="tab3">
                 <h3 id="Bs">Building Station</h3>
-                <h4 id="populationtext">Population: -</h3>
-                    <h4 id="maxpopulationtext">Max Population: -</h3>
-                    <h4 id="huttext">Huts: -</h3>
+                <h4 id="populationtext">Population: -</h4>
+                    <h4 id="unpopulationtext">Unemployed Population: -</h4>
+                    <h4 id="maxpopulationtext">Max Population: -</h4>
+                    <h4 id="huttext">Huts: -</h4>
                     <button id="hutbtn">Build Hut (50 Wood)</button>
                     <h4 id="lbgtext">Lumberjacks: (-)</h4>
                     <button id="lbghirebtn">Hire</button>
@@ -47,35 +48,35 @@
             var lumberjacks = 0
             var stokers = 0
             document.getElementById("lbghirebtn").addEventListener("click", function() {
-                if (population > 0) {
+                if (unpopulation > 0) {
                     lumberjacks += 1
-                    population -= 1
+                    unpopulation -= 1
                     document.getElementById("lbgtext").innerHTML = "Lumberjacks: (" + lumberjacks + ")"
-                    document.getElementById("populationtext").innerHTML = "Population: " + population
+                    document.getElementById("unpopulationtexxt").innerHTML = "Unemployed Population: " + unpopulation
                 }
             })
             document.getElementById("lbgfirebtn").addEventListener("click", function() {
                 if (lumberjacks > 0) {
                     lumberjacks -= 1
-                    population += 1
+                    unpopulation += 1
                     document.getElementById("lbgtext").innerHTML = "Lumberjacks: (" + lumberjacks + ")"
-                    document.getElementById("populationtext").innerHTML = "Population: " + population
+                    document.getElementById("unpopulationtexxt").innerHTML = "Unemployed Population: " + unpopulation
                 }
             })
             document.getElementById("skrhirebtn").addEventListener("click", function() {
-                if (population > 0) {
+                if (unpopulation > 0) {
                     stokers += 1
-                    population -= 1
+                    unpopulation -= 1
                     document.getElementById("skrtext").innerHTML = "Stokers: (" + stokers + ")"
-                    document.getElementById("populationtext").innerHTML = "Population: " + population
+                    document.getElementById("unpopulationtexxt").innerHTML = "Unemployed Population: " + unpopulation
                 }
             })
             document.getElementById("skrfirebtn").addEventListener("click", function() {
                 if (stokers > 0) {
                     stokers -= 1
-                    population += 1
+                    unpopulation += 1
                     document.getElementById("skrtext").innerHTML = "Stokers: (" + stokers + ")"
-                    document.getElementById("populationtext").innerHTML = "Population: " + population
+                    document.getElementById("unpopulationtexxt").innerHTML = "Unemployed Population: " + unpopulation
                 }
             })
             // Fire
@@ -119,14 +120,17 @@
               })
             // Building Station
             var population = 0
+            var unpopulation = 0
                       var maxpopulation = 0
                       var huts = 0
                       populationtext = document.getElementById("populationtext")
+                      unpopulationtext = document.getElementById("unpopulationtext")
                       maxpopulationtext = document.getElementById("maxpopulationtext")
                       huttext = document.getElementById("huttext")
                       hutbtn = document.getElementById("hutbtn")
             
                       populationtext.innerHTML = "Population: " + population
+                      unpopulationtext.innerHTML = "Unemployed Population: " + unpopulation
                       maxpopulationtext.innerHTML = "Max Population: " + maxpopulation
                       huttext.innerHTML = "Huts: " + huts
             
@@ -157,6 +161,7 @@
                   huts += 1
                   woodtext.innerHTML = "You have " + wood + " wood."
                   populationtext.innerHTML = "Population: " + population
+                  unpopulationtext.innerHTML = "Unemployed Population: " + unpopulation
                   maxpopulationtext.innerHTML = "Max Population: " + maxpopulation
                   huttext.innerHTML = "Huts: " + huts
                   hutbtn.disabled = true
@@ -170,10 +175,13 @@
             function addpopulation() {
               if (population < maxpopulation) {
                 population += 1
+                unpopulation += 1
                 populationtext.innerHTML = "Population: " + population
+                unpopulationtext.innerHTML = "Unemployed Population: " + unpopulation
               } else {
                 population = maxpopulation
                 populationtext.innerHTML = "Population: " + population
+                unpopulationtext.innerHTML = "Unemployed Population: " + unpopulation
               }
             }
   </script>
