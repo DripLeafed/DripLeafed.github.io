@@ -14,7 +14,6 @@
             <div id="tab3">
                 <h3 id="Bs">Building Station</h3>
                 <h4 id="populationtext">Population: -</h4>
-                    <h4 id="unpopulationtext">Unemployed Population: -</h4>
                     <h4 id="maxpopulationtext">Max Population: -</h4>
                     <h4 id="huttext">Huts: -</h4>
                     <button id="hutbtn">Build Hut (50 Wood)</button>
@@ -176,7 +175,7 @@
             }
             // Population
             function addpopulation() {
-              if (population < maxpopulation) {
+            if (!population + lumberjacks + stokers >= maxpopulation) {
                 population += 1
                 populationtext.innerHTML = "Population: " + population
               } else {
