@@ -35,10 +35,12 @@
                 woodtext.innerHTML = "You have " + wood + " wood."
             }
             function skrHps() {
-                firehealth += 15 * stokers
-                wood -= 2 * stokers
-                woodtext.innerHTML = "You have " + wood + " wood."
-                firetext.innerHTML = "Fire Health: " + firehealth
+                if (firehealth <= 85) {
+                    firehealth += 15 * stokers
+                    wood -= 2 * stokers
+                    woodtext.innerHTML = "You have " + wood + " wood."
+                    firetext.innerHTML = "Fire Health: " + firehealth
+                }
             }
             setInterval(lbgWps, 1000)
             setInterval(skrHps, 1000)
