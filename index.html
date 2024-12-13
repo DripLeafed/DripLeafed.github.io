@@ -17,9 +17,12 @@
                     <h4 id="maxpopulationtext">Max Population: -</h3>
                     <h4 id="huttext">Huts: -</h3>
                     <button id="hutbtn">Build Hut (50 Wood)</button>
-                    <h5>Lumberjack</h5>
-                    <button id="hirebtn">Hire</button>
-                    <button id="firebtn">Fire</button>
+                    <h4>Lumberjacks (-)</h4>
+                    <button id="lbghirebtn">Hire</button>
+                    <button id="lbgfirebtn">Fire</button>
+                    <h4>Stokers (-)</h4>
+                    <button id="skrhirebtn">Hire</button>
+                    <button id="skrfirebtn">Fire</button>
             </div>
         </div>
         <button id="tabButton1" class="tabButton">Small Hut (-)</button>
@@ -27,6 +30,16 @@
         <button id="tabButton3" class="tabButton">Building Station</button>
 
         <script>
+            var lumberjacks = 0
+            var stokers = 0
+            function hireLumberjack() {
+                lumberjacks += 1
+                population -= 1
+            }
+            function hireStoker() {
+                stokers += 1
+                population += 1
+            }
             // Fire
             var firehealth = 100
                     firetext = document.getElementById("firetext")
