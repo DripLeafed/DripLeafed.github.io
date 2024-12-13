@@ -67,13 +67,13 @@
             // Fire
             var firehealth = 100
                     firetext = document.getElementById("firetext")
-                    firebtn = document.getElementById("firebtn")
+                    stokebtn = document.getElementById("stokebtn")
         
                     firetext.style.textAlign = 'center'
                     firetext.innerHTML = "Fire Health: " + firehealth
                     document.getElementById("tabButton1").innerHTML = "Small Hut (" + firehealth + ")"
         
-                    firebtn.addEventListener("click", function() {
+                    stokebtn.addEventListener("click", function() {
                         onClick("fire")
                     })
         
@@ -135,8 +135,8 @@
                     document.getElementById("tabButton1").innerHTML = "Small Hut (" + firehealth + ")"
                     woodtext.innerHTML = "You have " + wood + " wood."
                     firetext.innerHTML = "Fire Health: " + firehealth
-                    firebtn.disabled = true
-                    sleep(1500).then(() => { firebtn.disabled = false })
+                    stokebtn.disabled = true
+                    sleep(1500).then(() => { stokebtn.disabled = false })
                 } else if (btn == "hut" && wood >= 50) {
                   wood -= 50
                   maxpopulation += 5
