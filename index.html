@@ -17,10 +17,10 @@
                     <h4 id="maxpopulationtext">Max Population: -</h3>
                     <h4 id="huttext">Huts: -</h3>
                     <button id="hutbtn">Build Hut (50 Wood)</button>
-                    <h4>Lumberjacks (-)</h4>
+                    <h4 id="lbgtext">Lumberjacks: (-)</h4>
                     <button id="lbghirebtn" onclick="hireLumberjack">Hire</button>
                     <button id="lbgfirebtn">Fire</button>
-                    <h4>Stokers (-)</h4>
+                    <h4 id="skrtext">Stokers: (-)</h4>
                     <button id="skrhirebtn" onclick="hireStoker">Hire</button>
                     <button id="skrfirebtn">Fire</button>
             </div>
@@ -35,10 +35,12 @@
             function hireLumberjack() {
                 lumberjacks += 1
                 population -= 1
+                document.getElementById("lbgtext").innerHTML = "Lumberjacks: (" + lumberjacks + ")"
             }
             function hireStoker() {
                 stokers += 1
-                population += 1
+                population -= 1
+                document.getElementById("skrtext").innerHTML = "Stokers: (" + stokers + ")"
             }
             // Fire
             var firehealth = 100
