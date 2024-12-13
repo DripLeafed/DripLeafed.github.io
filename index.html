@@ -6,36 +6,35 @@
                 <button id="firebtn">Stoke Fire</button>
             <h4 id="firetext">Fire Health: -</h3>
 
-            <script>
-                var firehealth = 100
-                firetext = document.getElementById("firetext")
-                firebtn = document.getElementById("firebtn")
-    
-                firetext.style.textAlign = 'center'
-                firetext.innerHTML = "Fire Health: " + firehealth
-                document.getElementById("tabButton1").innerHTML = "Small Hut (" + firehealth + ")"
-    
-                firebtn.addEventListener("click", function() {
-                    onClick("fire")
-                })
-    
-                function drainFireHealth() {
-                    firehealth -= 5
+                <script>
+                    var firehealth = 100
+                    firetext = document.getElementById("firetext")
+                    firebtn = document.getElementById("firebtn")
+        
+                    firetext.style.textAlign = 'center'
                     firetext.innerHTML = "Fire Health: " + firehealth
                     document.getElementById("tabButton1").innerHTML = "Small Hut (" + firehealth + ")"
-                    if (firehealth <= 0) {
-                        document.body.style.backgroundColor = "red"
-                        sleep(500).then(() => {
-                            if (confirm("You Died.\nRestarting.")) {
-                                location.reload()
-                            } else {
-                                location.reload()
-                            }
-                        })
+        
+                    firebtn.addEventListener("click", function() {
+                        onClick("fire")
+                    })
+        
+                    function drainFireHealth() {
+                        firehealth -= 5
+                        firetext.innerHTML = "Fire Health: " + firehealth
+                        document.getElementById("tabButton1").innerHTML = "Small Hut (" + firehealth + ")"
+                        if (firehealth <= 0) {
+                            document.body.style.backgroundColor = "red"
+                            sleep(500).then(() => {
+                                if (confirm("You Died.\nRestarting.")) {
+                                    location.reload()
+                                } else {
+                                    location.reload()
+                                }
+                            })
+                        }
                     }
-                }
-                setInterval(drainFireHealth, 3500)
-            </script>
+                </script>
             </div>
             <div id="tab2">
                 <h3 id="Df">Dark Forest</h3>
@@ -125,10 +124,12 @@
                 populationtext.innerHTML = "Population: " + population
               }
             }
-            setInterval(addpopulation, 30000)
   </script>
 
         <script>
+            setInterval(addpopulation, 30000)
+            setInterval(drainFireHealth, 3500)
+            
             const tabs = [
                 document.getElementById("tab1"),
                 document.getElementById("tab2"),
