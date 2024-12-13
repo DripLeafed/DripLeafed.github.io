@@ -40,19 +40,3 @@ body {font-family: Arial;}
     background-color: grey;
     transition-duration: 1s;
 }
-#lbghirebtn {
-    border: none;
-    background-color: inherit;
-    padding: 14px 28px;
-    font-size: 16px;
-    cursor: pointer;
-    display: inline-block;
-}
-#lbgfirebtn {
-    border: none;
-    background-color: inherit;
-    padding: 14px 28px;
-    font-size: 16px;
-    cursor: pointer;
-    display: inline-block;
-}
