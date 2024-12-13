@@ -3,8 +3,7 @@
         <div class="tabContainer">
             <div id="tab1">
                 <h3 id="Sh">Small Hut</h3>
-        <div id="Small Hut">
-            <button id="firebtn">Stoke Fire</button>
+                <button id="firebtn">Stoke Fire</button>
             <h4 id="firetext">Fire Health: -</h3>
 
             <script>
@@ -14,7 +13,7 @@
     
                 firetext.style.textAlign = 'center'
                 firetext.innerHTML = "Fire Health: " + firehealth
-                document.getElementById("smallhuttab").innerHTML = "Small Hut (" + firehealth + ")"
+                document.getElementById("tabButton1").innerHTML = "Small Hut (" + firehealth + ")"
     
                 firebtn.addEventListener("click", function() {
                     onClick("fire")
@@ -23,7 +22,7 @@
                 function drainFireHealth() {
                     firehealth -= 5
                     firetext.innerHTML = "Fire Health: " + firehealth
-                    document.getElementById("smallhuttab").innerHTML = "Small Hut (" + firehealth + ")"
+                    document.getElementById("tabButton1").innerHTML = "Small Hut (" + firehealth + ")"
                     if (firehealth <= 0) {
                         document.body.style.backgroundColor = "red"
                         sleep(500).then(() => {
@@ -37,12 +36,10 @@
                 }
                 setInterval(drainFireHealth, 3500)
             </script>
-        </div>
             </div>
             <div id="tab2">
                 <h3 id="Df">Dark Forest</h3>
-        <div id="Dark Forest">
-          <button id="woodbtn">Collect Wood</button>
+                <button id="woodbtn">Collect Wood</button>
           <h3 id="woodtext">You have - wood.</h3>
           <script>
               var wood = 0
@@ -56,33 +53,30 @@
                   onClick("wood")
               })
           </script>
-        </div>
             </div>
             <div id="tab3">
                 <h3 id="Bs">Building Station</h3>
-      <div id="Building Station">
-        <h4 id="populationtext">Population: -</h3>
-        <h4 id="maxpopulationtext">Max Population: -</h3>
-        <h4 id="huttext">Huts: -</h3>
-        <button id="hutbtn">Build Hut (50 Wood)</button>
-        <script>
-          var population = 0
-          var maxpopulation = 0
-          var huts = 0
-          populationtext = document.getElementById("populationtext")
-          maxpopulationtext = document.getElementById("maxpopulationtext")
-          huttext = document.getElementById("huttext")
-          hutbtn = document.getElementById("hutbtn")
-
-          populationtext.innerHTML = "Population: " + population
-          maxpopulationtext.innerHTML = "Max Population: " + maxpopulation
-          huttext.innerHTML = "Huts: " + huts
-
-          hutbtn.addEventListener("click", function() {
-            onClick("hut")
-          })
-        </script>
-      </div>
+                <h4 id="populationtext">Population: -</h3>
+                    <h4 id="maxpopulationtext">Max Population: -</h3>
+                    <h4 id="huttext">Huts: -</h3>
+                    <button id="hutbtn">Build Hut (50 Wood)</button>
+                    <script>
+                      var population = 0
+                      var maxpopulation = 0
+                      var huts = 0
+                      populationtext = document.getElementById("populationtext")
+                      maxpopulationtext = document.getElementById("maxpopulationtext")
+                      huttext = document.getElementById("huttext")
+                      hutbtn = document.getElementById("hutbtn")
+            
+                      populationtext.innerHTML = "Population: " + population
+                      maxpopulationtext.innerHTML = "Max Population: " + maxpopulation
+                      huttext.innerHTML = "Huts: " + huts
+            
+                      hutbtn.addEventListener("click", function() {
+                        onClick("hut")
+                      })
+                    </script>
             </div>
         </div>
         <button id="tabButton1" class="tabButton">Small Hut (-)</button>
