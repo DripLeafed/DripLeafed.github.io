@@ -1,59 +1,8 @@
 <html>
-    <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <style>
-    body {font-family: Arial;}
-    
-    /* Style the tab */
-    .tab {
-      overflow: hidden;
-      border: 1px solid #ccc;
-      background-color: #f1f1f1;
-    }
-    
-    /* Style the buttons inside the tab */
-    .tab button {
-      background-color: inherit;
-      float: left;
-      border: none;
-      outline: none;
-      cursor: pointer;
-      padding: 14px 16px;
-      transition: 0.3s;
-      font-size: 17px;
-    }
-    
-    /* Change background color of buttons on hover */
-    .tab button:hover {
-      background-color: #ddd;
-    }
-    
-    /* Create an active/current tablink class */
-    .tab button.active {
-      background-color: #ccc;
-    }
-    
-    /* Style the tab content */
-    .tabcontent {
-      display: none;
-      padding: 6px 12px;
-      border: 1px solid #ccc;
-      border-top: none;
-    }
-    </style>
-    </head>
     <body>
-    
-    <div class="tab">
-      <button id="smallhuttab" class="tablinks" onclick="openTab(event, 'Small Hut')">Small Hut (-)</button>
-      <button class="tablinks" onclick="openTab(event, 'Dark Forest')">Dark Forest</button>
-      <button class="tablinks" onclick="openTab(event, 'Building Station')">Building Station</button>
-    </div>
-
-    <link rel="stylesheet" href="/Styling/styles.css">
-    
-    <div id="Small Hut" class="tabcontent">
-        <h3 id="Sh">Small Hut</h3>
+        <div class="tabContainer">
+            <div id="tab1">
+                <h3 id="Sh">Small Hut</h3>
         <div id="Small Hut">
             <button id="firebtn">Stoke Fire</button>
             <h4 id="firetext">Fire Health: -</h3>
@@ -89,10 +38,9 @@
                 setInterval(drainFireHealth, 3500)
             </script>
         </div>
-    </div>
-    
-    <div id="Dark Forest" class="tabcontent">
-        <h3 id="Df">Dark Forest</h3>
+            </div>
+            <div id="tab2">
+                <h3 id="Df">Dark Forest</h3>
         <div id="Dark Forest">
           <button id="woodbtn">Collect Wood</button>
           <h3 id="woodtext">You have - wood.</h3>
@@ -109,10 +57,9 @@
               })
           </script>
         </div>
-    </div>
-    
-    <div id="Building Station" class="tabcontent">
-      <h3 id="Bs">Building Station</h3>
+            </div>
+            <div id="tab3">
+                <h3 id="Bs">Building Station</h3>
       <div id="Building Station">
         <h4 id="populationtext">Population: -</h3>
         <h4 id="maxpopulationtext">Max Population: -</h3>
@@ -136,69 +83,107 @@
           })
         </script>
       </div>
-    </div>
-    
-    <script>
-              function onClick(btn) {
-                  if (btn == "wood") {
-                      wood += 4
-                      woodtext.innerHTML = "You have " + wood + " wood."
-                      woodbtn.disabled = true
-                      sleep(3000).then(() => { woodbtn.disabled = false })
-                  } else if (btn == "fire" && wood >= 2 && firehealth < 100) {
-                      firehealth += 15
-                      wood -= 2
-                      if (firehealth > 100) {
-                          firehealth = 100
-                      }
-                      document.getElementById("smallhuttab").innerHTML = "Small Hut (" + firehealth + ")"
-                      woodtext.innerHTML = "You have " + wood + " wood."
-                      firetext.innerHTML = "Fire Health: " + firehealth
-                      firebtn.disabled = true
-                      sleep(1500).then(() => { firebtn.disabled = false })
-                  } else if (btn == "hut" && wood >= 50) {
-                    wood -= 50
-                    maxpopulation += 5
-                    huts += 1
-                    woodtext.innerHTML = "You have " + wood + " wood."
-                    populationtext.innerHTML = "Population: " + population
-                    maxpopulationtext.innerHTML = "Max Population: " + maxpopulation
-                    huttext.innerHTML = "Huts: " + huts
-                    hutbtn.disabled = true
-                    sleep(15000).then(() => {hutbtn.disabled = false })
-                  }
-              }
-              function sleep(ms) {
-                  return new Promise(resolve => setTimeout(resolve, ms))
-              }
-              function addpopulation() {
-                if (population < maxpopulation) {
-                  population += 1
-                  populationtext.innerHTML = "Population: " + population
-                } else {
-                  population = maxpopulation
-                  populationtext.innerHTML = "Population: " + population
-                }
-              }
-              setInterval(addpopulation, 30000)
-    </script>
+            </div>
+        </div>
+        <button id="tabButton1" class="tabButton">Small Hut (-)</button>
+        <button id="tabButton2" class="tabButton">Dark Forest</button>
+        <button id="tabButton3" class="tabButton">Building Station</button>
 
-    <script>
-    function openTab(evt, tabName) {
-      var i, tabcontent, tablinks;
-      tabcontent = document.getElementsByClassName("tabcontent");
-      for (i = 0; i < tabcontent.length; i++) {
-        tabcontent[i].style.display = "none";
-      }
-      tablinks = document.getElementsByClassName("tablinks");
-      for (i = 0; i < tablinks.length; i++) {
-        tablinks[i].className = tablinks[i].className.replace(" active", "");
-      }
-      document.getElementById(tabName).style.display = "block";
-      evt.currentTarget.className += " active";
-    }
-    </script>
-       
+        <script>
+            function onClick(btn) {
+                if (btn == "wood") {
+                    wood += 4
+                    woodtext.innerHTML = "You have " + wood + " wood."
+                    woodbtn.disabled = true
+                    sleep(3000).then(() => { woodbtn.disabled = false })
+                } else if (btn == "fire" && wood >= 2 && firehealth < 100) {
+                    firehealth += 15
+                    wood -= 2
+                    if (firehealth > 100) {
+                        firehealth = 100
+                    }
+                    document.getElementById("tabButton1").innerHTML = "Small Hut (" + firehealth + ")"
+                    woodtext.innerHTML = "You have " + wood + " wood."
+                    firetext.innerHTML = "Fire Health: " + firehealth
+                    firebtn.disabled = true
+                    sleep(1500).then(() => { firebtn.disabled = false })
+                } else if (btn == "hut" && wood >= 50) {
+                  wood -= 50
+                  maxpopulation += 5
+                  huts += 1
+                  woodtext.innerHTML = "You have " + wood + " wood."
+                  populationtext.innerHTML = "Population: " + population
+                  maxpopulationtext.innerHTML = "Max Population: " + maxpopulation
+                  huttext.innerHTML = "Huts: " + huts
+                  hutbtn.disabled = true
+                  sleep(15000).then(() => {hutbtn.disabled = false })
+                }
+            }
+            function sleep(ms) {
+                return new Promise(resolve => setTimeout(resolve, ms))
+            }
+            function addpopulation() {
+              if (population < maxpopulation) {
+                population += 1
+                populationtext.innerHTML = "Population: " + population
+              } else {
+                population = maxpopulation
+                populationtext.innerHTML = "Population: " + population
+              }
+            }
+            setInterval(addpopulation, 30000)
+  </script>
+
+        <script>
+            const tabs = [
+                document.getElementById("tab1"),
+                document.getElementById("tab2"),
+                document.getElementById("tab3")
+            ]
+            const tabButtons = [
+                document.getElementById("tabButton1"),
+                document.getElementById("tabButton2"),
+                document.getElementById("tabButton3")
+            ]
+            changeContent()
+            tabButtons[0].addEventListener("click", function() {
+                tabButtons[0].className = "tabButtonON"
+                tabButtons[1].className = "tabButton"
+                tabButtons[2].className = "tabButton"
+                changeContent()
+            })
+            tabButtons[1].addEventListener("click", function() {
+                tabButtons[1].className = "tabButtonON"
+                tabButtons[0].className = "tabButton"
+                tabButtons[2].className = "tabButton"
+                changeContent()
+            })
+            tabButtons[2].addEventListener("click", function() {
+                tabButtons[2].className = "tabButtonON"
+                tabButtons[1].className = "tabButton"
+                tabButtons[0].className = "tabButton"
+                changeContent()
+            })
+            function changeContent() {
+                if (tabButtons[0].className == "tabButtonON") {
+                    tabs[1].hidden = true
+                    tabs[0].hidden = false
+                    tabs[2].hidden = true
+                } else if (tabButtons[1].className == "tabButtonON") {
+                    tabs[0].hidden = true
+                    tabs[1].hidden = false
+                    tabs[2].hidden = true
+                } else if (tabButtons[2].className == "tabButtonON") {
+                    tabs[0].hidden = true
+                    tabs[1].hidden = true
+                    tabs[2].hidden = false
+                } else {
+                    tabs[0].hidden = true
+                    tabs[1].hidden = true
+                    tabs[2].hidden = true
+                }
+            }
+        </script>
+        <link rel="stylesheet" href="/Styling/styles.css">
     </body>
-    </html> 
-    
+</html>
