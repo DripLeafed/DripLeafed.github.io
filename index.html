@@ -5,9 +5,27 @@
                 <h3 id="Sh">Small Hut</h3>
                 <button id="firebtn">Stoke Fire</button>
             <h4 id="firetext">Fire Health: -</h3>
+            </div>
+            <div id="tab2">
+                <h3 id="Df">Dark Forest</h3>
+                <button id="woodbtn">Collect Wood</button>
+          <h3 id="woodtext">You have - wood.</h3>
+            </div>
+            <div id="tab3">
+                <h3 id="Bs">Building Station</h3>
+                <h4 id="populationtext">Population: -</h3>
+                    <h4 id="maxpopulationtext">Max Population: -</h3>
+                    <h4 id="huttext">Huts: -</h3>
+                    <button id="hutbtn">Build Hut (50 Wood)</button>
+            </div>
+        </div>
+        <button id="tabButton1" class="tabButton">Small Hut (-)</button>
+        <button id="tabButton2" class="tabButton">Dark Forest</button>
+        <button id="tabButton3" class="tabButton">Building Station</button>
 
-                <script>
-                    var firehealth = 100
+        <script>
+            // Fire
+            var firehealth = 100
                     firetext = document.getElementById("firetext")
                     firebtn = document.getElementById("firebtn")
         
@@ -34,14 +52,8 @@
                             })
                         }
                     }
-                </script>
-            </div>
-            <div id="tab2">
-                <h3 id="Df">Dark Forest</h3>
-                <button id="woodbtn">Collect Wood</button>
-          <h3 id="woodtext">You have - wood.</h3>
-          <script>
-              var wood = 0
+            // Wood
+            var wood = 0
               woodtext = document.getElementById("woodtext")
               woodbtn = document.getElementById("woodbtn")
   
@@ -51,16 +63,8 @@
               woodbtn.addEventListener("click", function() {
                   onClick("wood")
               })
-          </script>
-            </div>
-            <div id="tab3">
-                <h3 id="Bs">Building Station</h3>
-                <h4 id="populationtext">Population: -</h3>
-                    <h4 id="maxpopulationtext">Max Population: -</h3>
-                    <h4 id="huttext">Huts: -</h3>
-                    <button id="hutbtn">Build Hut (50 Wood)</button>
-                    <script>
-                      var population = 0
+            // Building Station
+            var population = 0
                       var maxpopulation = 0
                       var huts = 0
                       populationtext = document.getElementById("populationtext")
@@ -75,14 +79,7 @@
                       hutbtn.addEventListener("click", function() {
                         onClick("hut")
                       })
-                    </script>
-            </div>
-        </div>
-        <button id="tabButton1" class="tabButton">Small Hut (-)</button>
-        <button id="tabButton2" class="tabButton">Dark Forest</button>
-        <button id="tabButton3" class="tabButton">Building Station</button>
-
-        <script>
+            // Button Clicks
             function onClick(btn) {
                 if (btn == "wood") {
                     wood += 4
@@ -115,6 +112,7 @@
             function sleep(ms) {
                 return new Promise(resolve => setTimeout(resolve, ms))
             }
+            // Population
             function addpopulation() {
               if (population < maxpopulation) {
                 population += 1
@@ -161,21 +159,21 @@
             })
             function changeContent() {
                 if (tabButtons[0].className == "tabButtonON") {
-                    tabs[1].style.visibility = true
-                    tabs[0].style.visibility = false
-                    tabs[2].style.visibility = true
+                    tabs[1].hidden = true
+                    tabs[0].hidden = false
+                    tabs[2].hidden = true
                 } else if (tabButtons[1].className == "tabButtonON") {
-                    tabs[0].style.visibility = true
-                    tabs[1].style.visibility = false
-                    tabs[2].style.visibility = true
+                    tabs[0].hidden = true
+                    tabs[1].hidden = false
+                    tabs[2].hidden = true
                 } else if (tabButtons[2].className == "tabButtonON") {
-                    tabs[0].style.visibility = true
-                    tabs[1].style.visibility = true
-                    tabs[2].style.visibility = false
+                    tabs[0].hidden = true
+                    tabs[1].hidden = true
+                    tabs[2].hidden = false
                 } else {
-                    tabs[0].style.visibility = true
-                    tabs[1].style.visibility = true
-                    tabs[2].style.visibility = true
+                    tabs[0].hidden = true
+                    tabs[1].hidden = true
+                    tabs[2].hidden = true
                 }
             }
         </script>
