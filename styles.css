@@ -40,7 +40,7 @@ body {font-family: Arial;}
     background-color: grey;
     transition-duration: 1s;
 }
-#hirebtn {
+#lbghirebtn {
     border: none;
     background-color: inherit;
     padding: 14px 28px;
@@ -48,7 +48,7 @@ body {font-family: Arial;}
     cursor: pointer;
     display: inline-block;
 }
-#firebtn {
+#lbgfirebtn {
     border: none;
     background-color: inherit;
     padding: 14px 28px;
