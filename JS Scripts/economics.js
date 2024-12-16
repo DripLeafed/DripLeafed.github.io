@@ -6,10 +6,9 @@ function evolve() {
     tabButtons[3].disabled = false
 }
 function check() {
-    if (wood >= 1 && unlocked == false) {
+    if (wood >= 1000 && unlocked == false) {
         evolve()
-        wood -= 1
+        wood -= 1000
         unlocked = true
     }
 }
-setInterval(check, 3000)
