@@ -71,13 +71,13 @@
                 localStorage.getItem("firehealthsave")
                 localStorage.getItem("woodsave")
                 localStorage.getItem("hutsave")
-                lumberjacks = Number(lbgsave)
-                stokers = Number(skrsave)
-                population = Number(popsave)
-                maxpopulation = Number(maxpopsave)
-                firehealth = Number(firehealthsave)
-                wood = Number(woodsave)
-                huts = Number(hutsave)
+                lumberjacks = Number(lbgsave.valueOf())
+                stokers = Number(skrsave.valueOf())
+                population = Number(popsave.valueOf())
+                maxpopulation = Number(maxpopsave.valueOf())
+                firehealth = Number(firehealthsave.valueOf())
+                wood = Number(woodsave.valueOf())
+                huts = Number(hutsave.valueOf())
                 document.getElementById("lbgtext").innerHTML = "Lumberjacks: (" + lumberjacks + ")"
                 document.getElementById("skrtext").innerHTML = "Stokers: (" + stokers + ")"
                 document.getElementById("populationtext").innerHTML = "Population: " + population
