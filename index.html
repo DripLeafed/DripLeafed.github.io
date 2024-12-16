@@ -1,5 +1,6 @@
 <html>
     <body onload="pullData()">
+        <h5 id="savetext">Data Saved.</h5>
         <div class="tabContainer">
             <div id="tab1">
                 <h3 id="Sh">Small Hut</h3>
@@ -34,6 +35,7 @@
         <button id="tabButton3" class="tabButton">Building Station</button>
 
         <script>
+            document.getElementById("savetext").hidden = true
             var lbgsave = localStorage.getItem("lbgsave")
             var skrsave = localStorage.getItem("skrsave")
             var popsave = localStorage.getItem("popsave")
@@ -61,6 +63,10 @@
                 localStorage.setItem("firehealthsave", JSON.stringify(firehealth))
                 localStorage.setItem("woodsave", JSON.stringify(wood))
                 localStorage.setItem("hutsave", JSON.stringify(huts))
+                document.getElementById("savetext").hidden = false
+                sleep(3000).then(() => {
+                    document.getElementById("savetext").hidden = true
+                })
             }
             // Load Data
             function pullData() {
