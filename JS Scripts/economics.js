@@ -3,10 +3,7 @@ function evolve() {
     alert("Your community has evolved to the economic phase.\nEconomics Tab Unlocked.")
     tabButtons[3].hidden = false
 }
-function sleep(ms) {
-    return new Promise(resolve => setTimeout(resolve, ms))
+var economicsunlocked = false
+if (economicsunlocked == false) {
+    setInterval(3000, evolve())
 }
-
-sleep(3000).then(() => {
-    evolve()
-})
