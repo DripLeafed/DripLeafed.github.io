@@ -1,1 +1,1 @@
-document.getElementById("tabButton4").hidden = true
+tabButtons[3].hidden = true
