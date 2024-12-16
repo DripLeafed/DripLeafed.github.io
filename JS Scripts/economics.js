@@ -6,4 +6,5 @@ function evolve() {
 var economicsunlocked = false
 if (economicsunlocked == false) {
     setInterval(3000, evolve())
+    economicsunlocked = true
 }
