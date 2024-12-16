@@ -54,13 +54,13 @@
             }
             // Save Data
             function saveData() {
-                localStorage.setItem("lbgsave", toString(lumberjacks))
-                localStorage.setItem("skrsave", toString(stokers))
-                localStorage.setItem("popsave", toString(population))
-                localStorage.setItem("maxpopsave", toString(maxpopulation))
-                localStorage.setItem("firehealthsave", toString(firehealth))
-                localStorage.setItem("woodsave", toString(wood))
-                localStorage.setItem("hutsave", toString(huts))
+                localStorage.setItem("lbgsave", JSON.stringify(lumberjacks))
+                localStorage.setItem("skrsave", JSON.stringify(stokers))
+                localStorage.setItem("popsave", JSON.stringify(population))
+                localStorage.setItem("maxpopsave", JSON.stringify(maxpopulation))
+                localStorage.setItem("firehealthsave", JSON.stringify(firehealth))
+                localStorage.setItem("woodsave", JSON.stringify(wood))
+                localStorage.setItem("hutsave", JSON.stringify(huts))
             }
             // Load Data
             function pullData() {
@@ -71,13 +71,13 @@
                 localStorage.getItem("firehealthsave")
                 localStorage.getItem("woodsave")
                 localStorage.getItem("hutsave")
-                lumberjacks = Number(lbgsave.valueOf())
-                stokers = Number(skrsave.valueOf())
-                population = Number(popsave.valueOf())
-                maxpopulation = Number(maxpopsave.valueOf())
-                firehealth = Number(firehealthsave.valueOf())
-                wood = Number(woodsave.valueOf())
-                huts = Number(hutsave.valueOf())
+                lumberjacks = Number(lbgsave)
+                stokers = Number(skrsave)
+                population = Number(popsave)
+                maxpopulation = Number(maxpopsave)
+                firehealth = Number(firehealthsave)
+                wood = Number(woodsave)
+                huts = Number(hutsave)
                 document.getElementById("lbgtext").innerHTML = "Lumberjacks: (" + lumberjacks + ")"
                 document.getElementById("skrtext").innerHTML = "Stokers: (" + stokers + ")"
                 document.getElementById("populationtext").innerHTML = "Population: " + population
