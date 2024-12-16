@@ -1,3 +1,4 @@
+var unlocked = false
 tabButtons[3].hidden = true
 
 function evolve() {
@@ -5,9 +6,10 @@ function evolve() {
     tabButtons[3].hidden = false
 }
 function check() {
-    if (wood >= 1) {
+    if (wood >= 1 && unlocked == false) {
         evolve()
         wood -= 1
+        unlocked = true
     }
 }
 setInterval(check, 3000)
