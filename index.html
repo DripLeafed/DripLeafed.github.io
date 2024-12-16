@@ -39,6 +39,17 @@
             var firehealthsave = localStorage.getItem("firehealthsave")
             var woodsave = localStorage.getItem("woodsave")
             var hutsave = localStorage.getItem("hutsave")
+            // Reset Data
+            function resetData() {
+                lumberjacks = 0
+                stokers = 0
+                population = 0
+                maxpopulation = 0
+                firehealth = 0
+                wood = 0
+                huts = 0
+                saveData()
+            }
             // Save Data
             function saveData() {
                 localStorage.setItem("lbgsave", toString(lumberjacks))
@@ -49,6 +60,7 @@
                 localStorage.setItem("woodsave", toString(wood))
                 localStorage.setItem("hutsave", toString(huts))
             }
+            // Load Data
             function pullData() {
                 localStorage.getItem("lbgsave")
                 localStorage.getItem("skrsave")
