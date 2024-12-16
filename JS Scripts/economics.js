@@ -6,7 +6,7 @@ function evolve() {
 }
 function check() {
     if (wood >= 1) {
-        evolve
+        evolve()
         wood -= 1
     }
 }
