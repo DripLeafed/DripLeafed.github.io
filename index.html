@@ -39,7 +39,7 @@
         <button id="tabButton1" class="tabButton">Small Hut (-)</button>
         <button id="tabButton2" class="tabButton">Dark Forest</button>
         <button id="tabButton3" class="tabButton">Building Station</button>
-        <button id="tabButton4" class="tabButton" onclick="updateStatistics()">Statistics</button>
+        <button id="tabButton4" class="tabButton">Statistics</button>
 
         <script>
             var totalwood = 0
@@ -78,6 +78,7 @@
                 totalloss = 0
                 totalreplenish = 0
                 saveData()
+                updateStatistics()
             }
             // Save Data
             function saveData() {
@@ -135,6 +136,7 @@
             function lbgWps() {
                 wood += 4 * lumberjacks
                 woodtext.innerHTML = "You have " + wood + " wood."
+                updateStatistics()
             }
             function skrHps() {
                 if (firehealth <= 85 && wood >= 2) {
@@ -147,6 +149,7 @@
                     firetext.innerHTML = "Fire Health: " + firehealth
                     document.getElementById("tabButton1").innerHTML = "Small Hut (" + firehealth + ")"
                 }
+                updateStatistics()
             }
             setInterval(lbgWps, 1000)
             setInterval(skrHps, 1000)
@@ -215,6 +218,7 @@
                                 }
                             })
                         }
+                        updateStatistics()
                     }
             // Wood
             var wood = 0
@@ -272,6 +276,7 @@
                   hutbtn.disabled = true
                   sleep(15000).then(() => {hutbtn.disabled = false })
                 }
+                updateStatistics()
             }
             function sleep(ms) {
                 return new Promise(resolve => setTimeout(resolve, ms))
