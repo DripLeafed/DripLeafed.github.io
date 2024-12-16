@@ -60,5 +60,9 @@ document.getElementById("savetext").hidden = true
                 document.getElementById("tabButton1").innerHTML = "Small Hut (" + firehealth + ")"
                 document.getElementById("woodtext").innerHTML = "You have " + wood + " wood."
                 document.getElementById("huttext").innerHTML = "Huts: " + huts
+                if (unlocked == true) {
+                    document.getElementById("unlockeconomics").hidden = true
+                    tabButtons[3].disabled = false
+                }
             }
             setInterval(300000, saveData)

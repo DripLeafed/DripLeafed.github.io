@@ -19,8 +19,3 @@ document.getElementById("unlockeconomics").addEventListener("click", function() 
         document.getElementById("unlockeconomics").hidden = true
     }
 })
-
-if (unlocked == true) {
-    document.getElementById("unlockeconomics").hidden = true
-    tabButtons[3].disabled = false
-}
