@@ -28,30 +28,11 @@
                     <button onclick="saveData()">Save Data</button>
                     <button onclick="resetData()">Reset Data</button>
             </div>
-            <div id="tab4">
-                <h3>Statistics</h3>
-                <h5 id="twg">Total Wood Gathered: -</h5>
-                <h5 id="tfhl">Total Fire Health Lost: -</h5>
-                <h5 id="tfhr">Total Fire Health Replenished: -</h5>
-            </div>
         </div>
 
         <button id="tabButton1" class="tabButton">Small Hut (-)</button>
         <button id="tabButton2" class="tabButton">Dark Forest</button>
         <button id="tabButton3" class="tabButton">Building Station</button>
-        <button id="tabButton4" class="tabButton">Statistics</button>
-
-        <script>
-            var totalwood = 0
-            var totalloss = 0
-            var totalreplenish = 0
-            // Statistics
-            function updateStatistics() {
-                document.getElementById("twg").innerHTML = "Total Wood Gathered: " + totalwood
-                document.getElementById("tfhl").innerHTML = "Total Fire Health Lost: " + totalloss
-                document.getElementById("tfhr").innerHTML = "Total Fire Health Replenished: " + totalreplenish
-            }
-        </script>
 
         <script>
             document.getElementById("savetext").hidden = true
@@ -62,9 +43,6 @@
             var firehealthsave = localStorage.getItem("firehealthsave")
             var woodsave = localStorage.getItem("woodsave")
             var hutsave = localStorage.getItem("hutsave")
-            var totalwoodsave = localStorage.getItem("totalwoodsave")
-            var totallosssave = localStorage.getItem("totallosssave")
-            var totalreplenishsave = localStorage.getItem("totalreplenishsave")
             // Reset Data
             function resetData() {
                 lumberjacks = 0
@@ -74,11 +52,7 @@
                 firehealth = 100
                 wood = 0
                 huts = 0
-                totalwood = 0
-                totalloss = 0
-                totalreplenish = 0
                 saveData()
-                updateStatistics()
             }
             // Save Data
             function saveData() {
@@ -89,9 +63,6 @@
                 localStorage.setItem("firehealthsave", JSON.stringify(firehealth))
                 localStorage.setItem("woodsave", JSON.stringify(wood))
                 localStorage.setItem("hutsave", JSON.stringify(huts))
-                localStorage.setItem("totalwoodsave", JSON.stringify(totalwood))
-                localStorage.setItem("totallosssave", JSON.stringify(totalloss))
-                localStorage.setItem("totalreplenishsave", JSON.stringify(totalreplenish))
                 document.getElementById("savetext").hidden = false
                 sleep(3000).then(() => {
                     document.getElementById("savetext").hidden = true
@@ -106,9 +77,6 @@
                 localStorage.getItem("firehealthsave")
                 localStorage.getItem("woodsave")
                 localStorage.getItem("hutsave")
-                localStorage.getItem("totalwoodsave")
-                localStorage.getItem("totallosssave")
-                localStorage.getItem("totalreplenishsave")
                 lumberjacks = Number(lbgsave)
                 stokers = Number(skrsave)
                 population = Number(popsave)
@@ -116,9 +84,6 @@
                 firehealth = Number(firehealthsave)
                 wood = Number(woodsave)
                 huts = Number(hutsave)
-                totalwood = Number(totalwoodsave)
-                totalloss = Number(totallosssave)
-                totalreplenish = Number(totalreplenishsave)
                 document.getElementById("lbgtext").innerHTML = "Lumberjacks: (" + lumberjacks + ")"
                 document.getElementById("skrtext").innerHTML = "Stokers: (" + stokers + ")"
                 document.getElementById("populationtext").innerHTML = "Population: " + population
@@ -127,7 +92,6 @@
                 document.getElementById("tabButton1").innerHTML = "Small Hut (" + firehealth + ")"
                 document.getElementById("woodtext").innerHTML = "You have " + wood + " wood."
                 document.getElementById("huttext").innerHTML = "Huts: " + huts
-                updateStatistics()
             }
             setInterval(300000, saveData)
         </script>
@@ -136,7 +100,6 @@
             function lbgWps() {
                 wood += 4 * lumberjacks
                 woodtext.innerHTML = "You have " + wood + " wood."
-                updateStatistics()
             }
             function skrHps() {
                 if (firehealth <= 85 && wood >= 2) {
@@ -149,7 +112,6 @@
                     firetext.innerHTML = "Fire Health: " + firehealth
                     document.getElementById("tabButton1").innerHTML = "Small Hut (" + firehealth + ")"
                 }
-                updateStatistics()
             }
             setInterval(lbgWps, 1000)
             setInterval(skrHps, 1000)
@@ -218,7 +180,7 @@
                                 }
                             })
                         }
-                        updateStatistics()
+    
                     }
             // Wood
             var wood = 0
@@ -276,7 +238,6 @@
                   hutbtn.disabled = true
                   sleep(15000).then(() => {hutbtn.disabled = false })
                 }
-                updateStatistics()
             }
             function sleep(ms) {
                 return new Promise(resolve => setTimeout(resolve, ms))
@@ -297,9 +258,9 @@
             setInterval(addpopulation, 30000)
             setInterval(drainFireHealth, 3500)
             // Holds a "document.getElementById()" for each tab
-            const tabs = [ document.getElementById("tab1"), document.getElementById("tab2"), document.getElementById("tab3"), document.getElementById("tab4") ]
+            const tabs = [ document.getElementById("tab1"), document.getElementById("tab2"), document.getElementById("tab3") ]
             // Holds a "document.getElementById()" for each tab button
-            const tabButtons = [ document.getElementById("tabButton1"), document.getElementById("tabButton2"), document.getElementById("tabButton3"), document.getElementById("tabButton4") ]
+            const tabButtons = [ document.getElementById("tabButton1"), document.getElementById("tabButton2"), document.getElementById("tabButton3") ]
             updateContent()
             // Add the listeners for each button
             tabButtons.forEach(addListeners)
