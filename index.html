@@ -4,12 +4,12 @@
             <div id="tab1">
                 <h3 id="Sh">Small Hut</h3>
                 <button id="stokebtn">Stoke Fire</button>
-            <h4 id="firetext">Fire Health: -</h3>
+                <h4 id="firetext">Fire Health: -</h3>
             </div>
             <div id="tab2">
                 <h3 id="Df">Dark Forest</h3>
                 <button id="woodbtn">Collect Wood</button>
-          <h3 id="woodtext">You have - wood.</h3>
+                <h3 id="woodtext">You have - wood.</h3>
             </div>
             <div id="tab3">
                 <h3 id="Bs">Building Station</h3>
@@ -25,6 +25,7 @@
                     <button id="skrfirebtn">Fire</button>
             </div>
         </div>
+
         <button id="tabButton1" class="tabButton">Small Hut (-)</button>
         <button id="tabButton2" class="tabButton">Dark Forest</button>
         <button id="tabButton3" class="tabButton">Building Station</button>
@@ -43,6 +44,7 @@
                     wood -= 2 * stokers
                     woodtext.innerHTML = "You have " + wood + " wood."
                     firetext.innerHTML = "Fire Health: " + firehealth
+                    document.getElementById("tabButton1").innerHTML = "Small Hut (" + firehealth + ")"
                 }
             }
             setInterval(lbgWps, 1000)
@@ -188,54 +190,34 @@
         <script>
             setInterval(addpopulation, 30000)
             setInterval(drainFireHealth, 3500)
-
-            const tabs = [
-                document.getElementById("tab1"),
-                document.getElementById("tab2"),
-                document.getElementById("tab3")
-            ]
-            const tabButtons = [
-                document.getElementById("tabButton1"),
-                document.getElementById("tabButton2"),
-                document.getElementById("tabButton3")
-            ]
-            changeContent()
-            tabButtons[0].addEventListener("click", function() {
-                tabButtons[0].className = "tabButtonON"
-                tabButtons[1].className = "tabButton"
-                tabButtons[2].className = "tabButton"
-                changeContent()
-            })
-            tabButtons[1].addEventListener("click", function() {
-                tabButtons[1].className = "tabButtonON"
-                tabButtons[0].className = "tabButton"
-                tabButtons[2].className = "tabButton"
-                changeContent()
-            })
-            tabButtons[2].addEventListener("click", function() {
-                tabButtons[2].className = "tabButtonON"
-                tabButtons[1].className = "tabButton"
-                tabButtons[0].className = "tabButton"
-                changeContent()
-            })
-            function changeContent() {
-                if (tabButtons[0].className == "tabButtonON") {
-                    tabs[1].hidden = true
-                    tabs[0].hidden = false
-                    tabs[2].hidden = true
-                } else if (tabButtons[1].className == "tabButtonON") {
-                    tabs[0].hidden = true
-                    tabs[1].hidden = false
-                    tabs[2].hidden = true
-                } else if (tabButtons[2].className == "tabButtonON") {
-                    tabs[0].hidden = true
-                    tabs[1].hidden = true
-                    tabs[2].hidden = false
-                } else {
-                    tabs[0].hidden = true
-                    tabs[1].hidden = true
-                    tabs[2].hidden = true
-                }
+            // Holds a "document.getElementById()" for each tab
+            const tabs = [ document.getElementById("tab1"), document.getElementById("tab2"), document.getElementById("tab3") ]
+            // Holds a "document.getElementById()" for each tab button
+            const tabButtons = [ document.getElementById("tabButton1"), document.getElementById("tabButton2"), document.getElementById("tabButton3") ]
+            updateContent()
+            // Add the listeners for each button
+            tabButtons.forEach(addListeners)
+            function addListeners(currentValue, index) {
+                currentValue.className = "tabButton"
+                currentValue.addEventListener("click", function() {
+                    currentValue.className = "tabButtonON"
+                    tabButtons.forEach(element => {
+                        if (element != currentValue) {
+                            element.className = "tabButton"
+                        }
+                    });
+                    updateContent()
+                })
+            }
+            // Update the content to display the current tab's content instead of nothing
+            function updateContent() {
+                tabButtons.forEach(element => {
+                    if (element.className == "tabButtonON") {
+                        tabs[tabButtons.indexOf(element)].hidden = false
+                    } else {
+                        tabs[tabButtons.indexOf(element)].hidden = true
+                    }
+                });
             }
         </script>
         <link rel="stylesheet" href="styles.css">
