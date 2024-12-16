@@ -41,13 +41,13 @@
             var hutsave = localStorage.getItem("hutsave")
             // Save Data
             function saveData() {
-                localStorage.setItem("lbgsave", lumberjacks)
-                localStorage.setItem("skrsave", stokers)
-                localStorage.setItem("popsave", population)
-                localStorage.setItem("maxpopsave", maxpopulation)
-                localStorage.setItem("firehealthsave", firehealth)
-                localStorage.setItem("woodsave", wood)
-                localStorage.setItem("hutsave", huts)
+                localStorage.setItem("lbgsave", toString(lumberjacks))
+                localStorage.setItem("skrsave", toString(stokers))
+                localStorage.setItem("popsave", toString(population))
+                localStorage.setItem("maxpopsave", toString(maxpopulation))
+                localStorage.setItem("firehealthsave", toString(firehealth))
+                localStorage.setItem("woodsave", toString(wood))
+                localStorage.setItem("hutsave", toString(huts))
             }
             function pullData() {
                 localStorage.getItem("lbgsave")
@@ -57,13 +57,13 @@
                 localStorage.getItem("firehealthsave")
                 localStorage.getItem("woodsave")
                 localStorage.getItem("hutsave")
-                lumberjacks = lbgsave
-                stokers = skrsave
-                population = popsave
-                maxpopulation = maxpopsave
-                firehealth = firehealthsave
-                wood = woodsave
-                huts = hutsave
+                lumberjacks = Number(lbgsave)
+                stokers = Number(skrsave)
+                population = Number(popsave)
+                maxpopulation = Number(maxpopsave)
+                firehealth = Number(firehealthsave)
+                wood = Number(woodsave)
+                huts = Number(hutsave)
                 document.getElementById("lbgtext").innerHTML = "Lumberjacks: (" + lumberjacks + ")"
                 document.getElementById("skrtext").innerHTML = "Stokers: (" + stokers + ")"
                 document.getElementById("populationtext").innerHTML = "Population: " + population
