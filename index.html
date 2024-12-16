@@ -1,5 +1,5 @@
 <html>
-    <body>
+    <body onload="pullData">
         <div class="tabContainer">
             <div id="tab1">
                 <h3 id="Sh">Small Hut</h3>
@@ -29,6 +29,51 @@
         <button id="tabButton1" class="tabButton">Small Hut (-)</button>
         <button id="tabButton2" class="tabButton">Dark Forest</button>
         <button id="tabButton3" class="tabButton">Building Station</button>
+
+        <script>
+            var lbgsave = localStorage.getItem("lbgsave")
+            var skrsave = localStorage.getItem("skrsave")
+            var popsave = localStorage.getItem("popsave")
+            var maxpopsave = localStorage.getItem("maxpopsave")
+            var firehealthsave = localStorage.getItem("firehealthsave")
+            var woodsave = localStorage.getItem("woodsave")
+            var hutsave = localStorage.getItem("hutsave")
+            // Save Data
+            function saveData() {
+                localStorage.setItem("lbgsave", lumberjacks)
+                localStorage.setItem("skrsave", stokers)
+                localStorage.setItem("popsave", population)
+                localStorage.setItem("maxpopsave", maxpopulation)
+                localStorage.setItem("firehealthsave", firehealth)
+                localStorage.setItem("woodsave", wood)
+                localStorage.setItem("hutsave", huts)
+            }
+            function pullData() {
+                localStorage.getItem("lbgsave")
+                localStorage.getItem("skrsave")
+                localStorage.getItem("popsave")
+                localStorage.getItem("maxpopsave")
+                localStorage.getItem("firehealthsave")
+                localStorage.getItem("woodsave")
+                localStorage.getItem("hutsave")
+                lumberjacks = lbgsave
+                stokers = skrsave
+                population = popsave
+                maxpopulation = maxpopsave
+                firehealth = firehealthsave
+                wood = woodsave
+                huts = hutsave
+                document.getElementById("lbgtext").innerHTML = "Lumberjacks: (" + lumberjacks + ")"
+                document.getElementById("skrtext").innerHTML = "Stokers: (" + stokers + ")"
+                document.getElementById("populationtext").innerHTML = "Population: " + population
+                document.getElementById("maxpopulationtext").innerHTML = "Max Population: " + maxpopulation
+                document.getElementById("firetext").innerHTML = "Fire Health: " + firehealth
+                document.getElementById("tabButton1").innerHTML = "Small Hut (" + firehealth + ")"
+                document.getElementById("woodtext").innerHTML = "You have " + wood + " wood."
+                document.getElementById("huttext").innerHTML = "Huts: " + huts
+            }
+            window.addEventListener("beforeunload", saveData)
+        </script>
 
         <script>
             function lbgWps() {
