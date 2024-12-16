@@ -1,11 +1,6 @@
 document.getElementById("tabButton4").disabled = true
 function start() {
-    if (confirm("Your community has evolved to the economic phase.\nEconomics Tab Unlocked."))
-    {
-
-    } else {
-        
-    }
-    document.getElementById("tabButton4").disabled = true
+    alert("Your community has evolved to the economic phase.\nEconomics Tab Unlocked.")
+    document.getElementById("tabButton4").disabled = false
 }
 start()
