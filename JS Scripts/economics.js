@@ -10,4 +10,4 @@ function check() {
         wood -= 1
     }
 }
-setInterval(3000, check())
+setInterval(3000, check)
