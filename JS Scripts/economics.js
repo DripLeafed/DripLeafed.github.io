@@ -1,5 +1,4 @@
-document.getElementById("tabButton4").hidden = true
 function start() {
-    document.getElementById("tabButton4").hidden = false
+    alert("Your community has evolved to the economic phase.\nEconomics Tab Unlocked.")
 }
 start()
