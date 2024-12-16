@@ -9,7 +9,7 @@ function check() {
     if (wood >= 1 && unlocked == false) {
         evolve()
         wood -= 1
+        unlocked = true
     }
-    unlocked = true
 }
 setInterval(check, 3000)
