@@ -12,3 +12,10 @@ function check() {
         unlocked = true
     }
 }
+
+document.getElementById("unlockeconomics").addEventListener("click", function() {
+    check()
+    if (unlocked == true) {
+        document.getElementById("unlockeconomics").hidden = true
+    }
+})
