@@ -37,7 +37,7 @@ document.getElementById("lbgfirebtn").addEventListener("click", function() {
     }
 })
 document.getElementById("skrhirebtn").addEventListener("click", function() {
-    if ((population + lumberjacks + stokers) < maxpopulation) {
+    if ((population + lumberjacks + stokers) <= maxpopulation) {
         if (population > 0) {
             stokers += 1
             population -= 1
