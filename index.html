@@ -23,6 +23,7 @@
                     <h4 id="skrtext">Stokers: (-)</h4>
                     <button id="skrhirebtn">Hire</button>
                     <button id="skrfirebtn">Fire</button>
+                    <button onclick="saveData">Save Data</button>
             </div>
         </div>
 
@@ -72,7 +73,7 @@
                 document.getElementById("woodtext").innerHTML = "You have " + wood + " wood."
                 document.getElementById("huttext").innerHTML = "Huts: " + huts
             }
-            window.addEventListener("beforeunload", saveData)
+            setInterval(300000, saveData)
         </script>
 
         <script>
