@@ -1,15 +1,15 @@
 var unlocked = false
-tabButtons[3].disabled = true
+tabButtons[4].disabled = true
 
 function evolve() {
     alert("Your community has evolved to the economic phase.\nEconomics Tab Unlocked.")
-    tabButtons[3].disabled = false
+    tabButtons[4].disabled = false
+    unlocked = true
 }
 function check() {
     if (wood >= 1000 && unlocked == false) {
         evolve()
         wood -= 1000
-        unlocked = true
     }
 }
 
@@ -41,5 +41,12 @@ document.getElementById("sellwood").addEventListener("click", function() {
         perodons += 15
         document.getElementById("pd").innerHTML = "Perodons: *" + perodons
         document.getElementById("woodtext").innerHTML = "You have " + wood + " wood."
+    }
+})
+document.getElementById("buyminingequipment").addEventListener("click", function() {
+    if (perodons >= 150 && unlocked1 == false) {
+        perodons -= 150
+        evolve1()
+        document.getElementById("buyminingequipment").hidden = true
     }
 })
