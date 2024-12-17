@@ -32,12 +32,14 @@ function EconomicManager(currency) {
 }
 function makeAllCurrencies() {
     makeCurrency("~", "Perodons")
-    document.getElementById("pd").innerHTML = "Perodons: *" + currencies[0]
+    document.getElementById("pd").innerHTML = "Perodons: *" + perodons
 }
 makeAllCurrencies()
 document.getElementById("sellwood").addEventListener("click", function() {
     if (wood >= 150) {
         wood -= 150
         perodons += 15
+        document.getElementById("pd").innerHTML = "Perodons: *" + perodons
+        document.getElementById("woodtext").innerHTML = "You have " + wood + " wood."
     }
 })
