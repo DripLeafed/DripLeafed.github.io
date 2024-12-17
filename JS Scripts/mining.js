@@ -16,10 +16,12 @@ document.getElementById("mineiron").addEventListener("click", function() {
     sleep(5000).then(() => { document.getElementById("mineiron").disabled = false })
 })
 document.getElementById("forgeiron").addEventListener("click", function() {
-    iron += 1
-    ironore -= 5
-    document.getElementById("iron").innerHTML = "Iron: " + iron
-    document.getElementById("ironore").innerHTML = "Iron Ore: " + ironore
-    document.getElementById("forgeiron").disabled = true
-    sleep(7500).then(() => { document.getElementById("forgeiron").disabled = false })
+    if (ironore >= 5) {
+        iron += 1
+        ironore -= 5
+        document.getElementById("iron").innerHTML = "Iron: " + iron
+        document.getElementById("ironore").innerHTML = "Iron Ore: " + ironore
+        document.getElementById("forgeiron").disabled = true
+        sleep(7500).then(() => { document.getElementById("forgeiron").disabled = false })
+    }
 })
