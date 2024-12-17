@@ -28,5 +28,5 @@ function makeCurrency(symbol, name) {
 }
 function EconomicManager(currency) {
     currencies.push(currency)
-    document.getElementById("test").innerHTML = currency
+    document.getElementById("cur").innerHTML = currency
 }
