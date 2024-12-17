@@ -30,3 +30,4 @@ function EconomicManager(currency) {
     currencies.push(currency)
     document.getElementById("cur").innerHTML = currency
 }
+makeCurrency("*", "Test")
