@@ -23,7 +23,7 @@ document.getElementById("unlockeconomics").addEventListener("click", function() 
 // Actual Economics
 currencies = []
 function makeCurrency(symbol, name) {
-    var newcurrency = "${symbol}${name}"
+    var newcurrency = `${symbol}${name}`
     EconomicManager(newcurrency)
 }
 function EconomicManager(currency) {
