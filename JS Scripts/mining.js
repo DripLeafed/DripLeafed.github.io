@@ -20,8 +20,10 @@ document.getElementById("forgeiron").addEventListener("click", function() {
         ironore -= 5
         document.getElementById("ironore").innerHTML = "Iron Ore: " + ironore
         document.getElementById("forgeiron").disabled = true
-        sleep(7500).then(() => { document.getElementById("forgeiron").disabled = false })
-        iron += 1
-        document.getElementById("iron").innerHTML = "Iron: " + iron
+        sleep(7500).then(() => { 
+            document.getElementById("forgeiron").disabled = false
+            iron += 1
+            document.getElementById("iron").innerHTML = "Iron: " + iron
+         })
     }
 })
