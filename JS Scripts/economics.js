@@ -22,6 +22,7 @@ document.getElementById("unlockeconomics").addEventListener("click", function() 
 
 // Actual Economics
 currencies = []
+var perodons = 0
 function makeCurrency(symbol, name) {
     var newcurrency = `${symbol}${name}`
     EconomicManager(newcurrency)
@@ -31,6 +32,12 @@ function EconomicManager(currency) {
 }
 function makeAllCurrencies() {
     makeCurrency("~", "Perodons")
-    document.getElementById("pd").innerHTML = "Perodons: " + currencies[0]
+    document.getElementById("pd").innerHTML = "Perodons: *" + currencies[0]
 }
 makeAllCurrencies()
+document.getElementById("sellwood").addEventListener("click", function() {
+    if (wood >= 150) {
+        wood -= 150
+        perodons += 15
+    }
+})
