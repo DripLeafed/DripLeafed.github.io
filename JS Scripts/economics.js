@@ -32,14 +32,14 @@ function EconomicManager(currency) {
 }
 function makeAllCurrencies() {
     makeCurrency("~", "Perodons")
-    document.getElementById("pd").innerHTML = "Perodons: *" + perodons
+    document.getElementById("pd").innerHTML = "Perodons: ~" + perodons
 }
 makeAllCurrencies()
 document.getElementById("sellwood").addEventListener("click", function() {
     if (wood >= 150) {
         wood -= 150
         perodons += 15
-        document.getElementById("pd").innerHTML = "Perodons: *" + perodons
+        document.getElementById("pd").innerHTML = "Perodons: ~" + perodons
         document.getElementById("woodtext").innerHTML = "You have " + wood + " wood."
     }
 })
@@ -48,5 +48,6 @@ document.getElementById("buyminingequipment").addEventListener("click", function
         perodons -= 150
         evolve1()
         document.getElementById("buyminingequipment").hidden = true
+        document.getElementById("pd").innerHTML = "Perodons: ~" + perodons
     }
 })

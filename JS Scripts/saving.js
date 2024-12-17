@@ -7,6 +7,8 @@ document.getElementById("savetext").hidden = true
             var woodsave = localStorage.getItem("woodsave")
             var hutsave = localStorage.getItem("hutsave")
             var unlockedsave = localStorage.getItem("unlockedsave")
+            var unlocked1save = localStorage.getItem("unlocked1save")
+            var perodonsave = localStorage.getItem("perodonsave")
             // Reset Data
             function resetData() {
                 lumberjacks = 0
@@ -17,6 +19,8 @@ document.getElementById("savetext").hidden = true
                 wood = 0
                 huts = 0
                 unlocked = false
+                unlocked1 = false
+                perodons = 0
                 saveData()
             }
             // Save Data
@@ -29,6 +33,8 @@ document.getElementById("savetext").hidden = true
                 localStorage.setItem("woodsave", JSON.stringify(wood))
                 localStorage.setItem("hutsave", JSON.stringify(huts))
                 localStorage.setItem("unlockedsave", JSON.stringify(unlocked))
+                localStorage.setItem("unlocked1save", JSON.stringify(unlocked1))
+                localStorage.setItem("perodonsave", JSON.stringify(perodons))
                 document.getElementById("savetext").hidden = false
                 sleep(3000).then(() => {
                     document.getElementById("savetext").hidden = true
@@ -44,6 +50,8 @@ document.getElementById("savetext").hidden = true
                 localStorage.getItem("woodsave")
                 localStorage.getItem("hutsave")
                 localStorage.getItem("unlockedsave")
+                localStorage.getItem("unlocked1save")
+                localStorage.getItem("perodonsave")
                 lumberjacks = Number(lbgsave)
                 stokers = Number(skrsave)
                 population = Number(popsave)
@@ -52,6 +60,8 @@ document.getElementById("savetext").hidden = true
                 wood = Number(woodsave)
                 huts = Number(hutsave)
                 unlocked = (unlockedsave === "true")
+                unlocked1 = (unlocked1save === "true")
+                perodons = Number(perodonsave)
                 document.getElementById("lbgtext").innerHTML = "Lumberjacks: (" + lumberjacks + ")"
                 document.getElementById("skrtext").innerHTML = "Stokers: (" + stokers + ")"
                 document.getElementById("populationtext").innerHTML = "Population: " + population
@@ -60,8 +70,13 @@ document.getElementById("savetext").hidden = true
                 document.getElementById("tabButton1").innerHTML = "Small Hut (" + firehealth + ")"
                 document.getElementById("woodtext").innerHTML = "You have " + wood + " wood."
                 document.getElementById("huttext").innerHTML = "Huts: " + huts
+                document.getElementById("pd").innerHTML = "Perodons: ~" + perodons
                 if (unlocked == true) {
                     document.getElementById("unlockeconomics").hidden = true
+                    tabButtons[4].disabled = false
+                }
+                if (unlocked1 == true) {
+                    document.getElementById("buyminingequipment").hidden = true
                     tabButtons[3].disabled = false
                 }
             }

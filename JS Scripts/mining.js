@@ -6,3 +6,6 @@ function evolve1() {
     tabButtons[3].disabled = false
     unlocked1 = true
 }
+
+document.getElementById("mineiron").addEventListener("click", function() {
+})
