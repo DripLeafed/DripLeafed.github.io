@@ -51,3 +51,13 @@ document.getElementById("buyminingequipment").addEventListener("click", function
         document.getElementById("pd").innerHTML = "Perodons: ~" + perodons
     }
 })
+document.getElementById("buyfood").addEventListener("click", function() {
+    if (perodons >= 75) {
+        perodons -= 75
+        food += 500
+        document.getElementById("pd").innerHTML = "Perodons: ~" + perodons
+        document.getElementById("foodlbl").innerHTML = "Food: " + food
+        document.getElementById("buyfood").disabled = true
+        sleep(4500).then(() => { document.getElementById("buyfood").disabled = false })
+    }
+})
