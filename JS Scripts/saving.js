@@ -11,6 +11,7 @@ document.getElementById("savetext").hidden = true
             var perodonsave = localStorage.getItem("perodonsave")
             var ironoresave = localStorage.getItem("ironoresave")
             var ironsave = localStorage.getItem("ironsave")
+            var foodsave = localStorage.getItem("foodsave")
             // Reset Data
             function resetData() {
                 lumberjacks = 0
@@ -25,6 +26,7 @@ document.getElementById("savetext").hidden = true
                 perodons = 0
                 ironore = 0
                 iron = 0
+                food = 1000
                 saveData()
             }
             // Save Data
@@ -41,6 +43,7 @@ document.getElementById("savetext").hidden = true
                 localStorage.setItem("perodonsave", JSON.stringify(perodons))
                 localStorage.setItem("ironoresave", JSON.stringify(ironore))
                 localStorage.setItem("ironsave", JSON.stringify(iron))
+                localStorage.setItem("foodsave", JSON.stringify(food))
                 document.getElementById("savetext").hidden = false
                 sleep(3000).then(() => {
                     document.getElementById("savetext").hidden = true
@@ -60,6 +63,7 @@ document.getElementById("savetext").hidden = true
                 localStorage.getItem("perodonsave")
                 localStorage.getItem("ironoresave")
                 localStorage.getItem("ironsave")
+                localStorage.getItem("foodsave")
                 lumberjacks = Number(lbgsave)
                 stokers = Number(skrsave)
                 population = Number(popsave)
@@ -72,6 +76,7 @@ document.getElementById("savetext").hidden = true
                 perodons = Number(perodonsave)
                 ironore = Number(ironoresave)
                 iron = Number(ironsave)
+                food = Number(foodsave)
                 document.getElementById("lbgtext").innerHTML = "Lumberjacks: (" + lumberjacks + ")"
                 document.getElementById("skrtext").innerHTML = "Stokers: (" + stokers + ")"
                 document.getElementById("populationtext").innerHTML = "Population: " + population
@@ -83,6 +88,7 @@ document.getElementById("savetext").hidden = true
                 document.getElementById("pd").innerHTML = "Perodons: ~" + perodons
                 document.getElementById("iron").innerHTML = "Iron: " + iron
                 document.getElementById("ironore").innerHTML = "Iron Ore: " + ironore
+                document.getElementById("foodlbl").innerHTML = "Food: " + food
                 if (unlocked == true) {
                     document.getElementById("unlockeconomics").hidden = true
                     tabButtons[4].disabled = false
