@@ -19,3 +19,14 @@ document.getElementById("unlockeconomics").addEventListener("click", function() 
         document.getElementById("unlockeconomics").hidden = true
     }
 })
+
+// Actual Economics
+currencies = []
+function makeCurrency(symbol, name) {
+    var newcurrency = "${symbol}${name}"
+    EconomicManager(newcurrency)
+}
+function EconomicManager(currency) {
+    currencies.push(currency)
+    document.getElementById("test").innerHTML = currency
+}
