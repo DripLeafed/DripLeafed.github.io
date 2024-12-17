@@ -28,6 +28,9 @@ function makeCurrency(symbol, name) {
 }
 function EconomicManager(currency) {
     currencies.push(currency)
-    document.getElementById("cur").innerHTML = currency
 }
-makeCurrency("*", "Test")
+function makeAllCurrencies() {
+    makeCurrency("~", "Perodons")
+    document.getElementById("pd").innerHTML = "Perodons: " + currencies[0]
+}
+makeAllCurrencies()
