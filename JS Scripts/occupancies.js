@@ -20,12 +20,19 @@ function fmrFps() {
 }
 function mnrIps() {
     ironore += 3 * miners
+    goldore += 3 * miners
     if (ironore >= 5 * miners) {
         iron += 1 * miners
         ironore -= 5 * miners
     }
+    if (goldore >= 5 * miners) {
+        gold += 1 * miners
+        goldore -= 5 * miners
+    }
     document.getElementById("ironore").innerHTML = "Iron Ore: " + ironore
     document.getElementById("iron").innerHTML = "Iron: " + iron
+    document.getElementById("goldore").innerHTML = "Gold Ore: " + goldore
+    document.getElementById("gold").innerHTML = "Gold: " + gold
 }
 function blrHps() {
     if (wood >= 50) {

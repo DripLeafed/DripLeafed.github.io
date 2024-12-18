@@ -51,6 +51,14 @@ document.getElementById("selliron").addEventListener("click", function() {
         document.getElementById("iron").innerHTML = "Iron: " + iron
     }
 })
+document.getElementById("sellgold").addEventListener("click", function() {
+    if (gold >= 2) {
+        gold -= 2
+        perodons += 1000
+        document.getElementById("pd").innerHTML = "Perodons: ~" + perodons
+        document.getElementById("gold").innerHTML = "Gold: " + gold
+    }
+})
 document.getElementById("buyminingequipment").addEventListener("click", function() {
     if (perodons >= 150 && unlocked1 == false) {
         perodons -= 150
