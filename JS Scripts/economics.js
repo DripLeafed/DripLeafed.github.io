@@ -43,6 +43,14 @@ document.getElementById("sellwood").addEventListener("click", function() {
         document.getElementById("woodtext").innerHTML = "You have " + wood + " wood."
     }
 })
+document.getElementById("selliron").addEventListener("click", function() {
+    if (iron >= 2) {
+        iron -= 2
+        perodons += 100
+        document.getElementById("pd").innerHTML = "Perodons: ~" + perodons
+        document.getElementById("iron").innerHTML = "Iron: " + iron
+    }
+})
 document.getElementById("buyminingequipment").addEventListener("click", function() {
     if (perodons >= 150 && unlocked1 == false) {
         perodons -= 150
