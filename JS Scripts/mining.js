@@ -1,6 +1,8 @@
 var unlocked1 = false
 var ironore = 0
 var iron = 0
+var goldore = 0
+var gold = 0
 tabButtons[3].disabled = true
 
 function evolve1() {
@@ -31,14 +33,14 @@ document.getElementById("minegold").addEventListener("click", function() {
     ironore += 1
     document.getElementById("goldore").innerHTML = "Gold Ore: " + goldore
     document.getElementById("minegold").disabled = true
-    sleep(5000).then(() => { document.getElementById("minegold").disabled = false })
+    sleep(10000).then(() => { document.getElementById("minegold").disabled = false })
 })
 document.getElementById("forgegold").addEventListener("click", function() {
     if (goldore >= 5) {
         goldore -= 5
         document.getElementById("goldore").innerHTML = "Gold Ore: " + goldore
         document.getElementById("forgegold").disabled = true
-        sleep(7500).then(() => { 
+        sleep(15000).then(() => { 
             document.getElementById("forgegold").disabled = false
             gold += 1
             document.getElementById("gold").innerHTML = "Gold: " + gold
