@@ -69,3 +69,15 @@ document.getElementById("buyfood").addEventListener("click", function() {
         sleep(4500).then(() => { document.getElementById("buyfood").disabled = false })
     }
 })
+document.getElementById("promote").addEventListener("click", function() {
+    if ((population + lumberjacks + stokers + farmers + miners) < maxpopulation & (population + lumberjacks + stokers + farmers + miners + 5) <= maxpopulation) {
+        if (perodons >= 50) {
+            perodons -= 50
+            population += 5
+            document.getElementById("pd").innerHTML = "Perdons: ~" + perodons
+            document.getElementById("populationtext").innerHTML = "Population: " + population
+            document.getElementById("promote").disabled = true
+            sleep(120000).then(() => { document.getElementById("promote").disabled = false })
+        }
+    }
+})
