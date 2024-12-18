@@ -19,7 +19,7 @@ function fmrFps() {
     document.getElementById("foodlbl").innerHTML = "Food: " + food
 }
 function mnrIps() {
-    ironore += 2 * miners
+    ironore += 3 * miners
     if (ironore >= 5 * miners) {
         iron += 1 * miners
         ironore -= 5 * miners
