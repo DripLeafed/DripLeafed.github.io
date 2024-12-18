@@ -18,7 +18,7 @@ var firehealth = 100
             if (firehealth <= 0) {
                 document.body.style.backgroundColor = "red"
                 sleep(500).then(() => {
-                    if (confirm("You Died.\nRestarting.")) {
+                    if (confirm("Your Fire Died.\nRestarting.")) {
                         location.reload()
                     } else {
                         location.reload()
