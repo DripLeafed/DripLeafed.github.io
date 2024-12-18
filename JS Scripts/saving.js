@@ -14,6 +14,7 @@ document.getElementById("savetext").hidden = true
             var foodsave = localStorage.getItem("foodsave")
             var fmrsave = localStorage.getItem("fmrsave")
             var mnrsave = localStorage.getItem("mnrsave")
+            var blrsave = localStorage.getItem("blrsave")
             var firstcheck = localStorage.getItem("firstcheck")
             // Reset Data
             function resetData() {
@@ -21,6 +22,7 @@ document.getElementById("savetext").hidden = true
                 stokers = 0
                 farmers = 0
                 miners = 0
+                builders = 0
                 population = 0
                 maxpopulation = 0
                 firehealth = 100
@@ -51,6 +53,7 @@ document.getElementById("savetext").hidden = true
                 localStorage.setItem("foodsave", JSON.stringify(food))
                 localStorage.setItem("fmrsave", JSON.stringify(farmers))
                 localStorage.setItem("mnrsave", JSON.stringify(miners))
+                localStorage.setItem("blrsave", JSON.stringify(builders))
                 localStorage.setItem("firstcheck", ".")
                 document.getElementById("savetext").hidden = false
                 sleep(3000).then(() => {
@@ -74,6 +77,7 @@ document.getElementById("savetext").hidden = true
                 localStorage.getItem("foodsave")
                 localStorage.getItem("fmrsave")
                 localStorage.getItem("mnrsave")
+                localStorage.getItem("blrsave")
                 localStorage.getItem("firstcheck")
                 lumberjacks = Number(lbgsave)
                 stokers = Number(skrsave)
@@ -90,6 +94,7 @@ document.getElementById("savetext").hidden = true
                 food = Number(foodsave)
                 farmers = Number(fmrsave)
                 miners = Number(mnrsave)
+                builders = Number(blrsave)
                 document.getElementById("lbgtext").innerHTML = "Lumberjacks: (" + lumberjacks + ")"
                 document.getElementById("skrtext").innerHTML = "Stokers: (" + stokers + ")"
                 document.getElementById("populationtext").innerHTML = "Population: " + population
@@ -104,6 +109,7 @@ document.getElementById("savetext").hidden = true
                 document.getElementById("foodlbl").innerHTML = "Food: " + food
                 document.getElementById("fmrtext").innerHTML = "Farmers: (" + farmers + ")"
                 document.getElementById("mnrtext").innerHTML = "Miners: (" + miners + ")"
+                document.getElementById("blrtext").innerHTML = "Builders: (" + builders + ")"
                 if (unlocked == true) {
                     document.getElementById("unlockeconomics").hidden = true
                     tabButtons[4].disabled = false
