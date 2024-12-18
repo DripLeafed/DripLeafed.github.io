@@ -20,9 +20,9 @@ function fmrFps() {
 }
 function mnrIps() {
     ironore += 2 * miners
-    if (ironore >= 5) {
-        iron += 1
-        ironore -= 5
+    if (ironore >= 5 * miners) {
+        iron += 1 * miners
+        ironore -= 5 * miners
     }
     document.getElementById("ironore").innerHTML = "Iron Ore: " + ironore
     document.getElementById("iron").innerHTML = "Iron: " + iron
