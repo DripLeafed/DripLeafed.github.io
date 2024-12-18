@@ -91,9 +91,13 @@ function sleep(ms) {
 function addpopulation() {
 if ((population + lumberjacks + stokers + farmers + miners) < maxpopulation) {
     population += 1
+    tabButtons[2].innerHTML = "(!) Building Station"
     populationtext.innerHTML = "Population: " + population
   } else if ((population + lumberjacks + stokers + farmers + miners) >= maxpopulation){
     population = maxpopulation
     populationtext.innerHTML = "Population: " + population
   }
+}
+function fixText() {
+    tabButtons[2].innerHTML = "Building Station"
 }
