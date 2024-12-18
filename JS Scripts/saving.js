@@ -15,6 +15,8 @@ document.getElementById("savetext").hidden = true
             var fmrsave = localStorage.getItem("fmrsave")
             var mnrsave = localStorage.getItem("mnrsave")
             var blrsave = localStorage.getItem("blrsave")
+            var goldsave = localStorage.getItem("goldsave")
+            var goldoresave = localStorage.getItem("goldoresave")
             var firstcheck = localStorage.getItem("firstcheck")
             // Reset Data
             function resetData() {
@@ -33,6 +35,8 @@ document.getElementById("savetext").hidden = true
                 perodons = 0
                 ironore = 0
                 iron = 0
+                gold = 0
+                goldore = 0
                 food = 1000
                 saveData()
             }
@@ -54,6 +58,8 @@ document.getElementById("savetext").hidden = true
                 localStorage.setItem("fmrsave", JSON.stringify(farmers))
                 localStorage.setItem("mnrsave", JSON.stringify(miners))
                 localStorage.setItem("blrsave", JSON.stringify(builders))
+                localStorage.setItem("goldsave", JSON.stringify(gold))
+                localStorage.setItem("goldoresave", JSON.stringify(goldore))
                 localStorage.setItem("firstcheck", ".")
                 document.getElementById("savetext").hidden = false
                 sleep(3000).then(() => {
@@ -79,6 +85,8 @@ document.getElementById("savetext").hidden = true
                 localStorage.getItem("mnrsave")
                 localStorage.getItem("blrsave")
                 localStorage.getItem("firstcheck")
+                localStorage.getItem("goldoresave")
+                localStorage.getItem("goldsave")
                 lumberjacks = Number(lbgsave)
                 stokers = Number(skrsave)
                 population = Number(popsave)
@@ -95,6 +103,8 @@ document.getElementById("savetext").hidden = true
                 farmers = Number(fmrsave)
                 miners = Number(mnrsave)
                 builders = Number(blrsave)
+                gold = Number(goldsave)
+                goldore = Number(goldoresave)
                 document.getElementById("lbgtext").innerHTML = "Lumberjacks: (" + lumberjacks + ")"
                 document.getElementById("skrtext").innerHTML = "Stokers: (" + stokers + ")"
                 document.getElementById("populationtext").innerHTML = "Population: " + population
@@ -110,6 +120,8 @@ document.getElementById("savetext").hidden = true
                 document.getElementById("fmrtext").innerHTML = "Farmers: (" + farmers + ")"
                 document.getElementById("mnrtext").innerHTML = "Miners: (" + miners + ")"
                 document.getElementById("blrtext").innerHTML = "Builders: (" + builders + ")"
+                document.getElementById("gold").innerHTML = "Gold: " + gold
+                document.getElementById("goldore").innerHTML = "Gold Ore: " + goldore
                 if (unlocked == true) {
                     document.getElementById("unlockeconomics").hidden = true
                     tabButtons[4].disabled = false
