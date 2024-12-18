@@ -14,12 +14,18 @@ function skrHps() {
         document.getElementById("tabButton1").innerHTML = "Small Hut (" + firehealth + ")"
     }
 }
+function fmrFps() {
+    food += 100 * farmers
+    document.getElementById("foodlbl").innerHTML = "Food: " + food
+}
 setInterval(lbgWps, 1000)
 setInterval(skrHps, 1000)
+setInterval(fmrFps, 1000)
 var lumberjacks = 0
 var stokers = 0
+var farmers = 0
 document.getElementById("lbghirebtn").addEventListener("click", function() {
-    if ((population + lumberjacks + stokers) <= maxpopulation) {
+    if ((population + lumberjacks + stokers + farmers) <= maxpopulation) {
         if (population > 0) {
             lumberjacks += 1
             population -= 1
@@ -37,7 +43,7 @@ document.getElementById("lbgfirebtn").addEventListener("click", function() {
     }
 })
 document.getElementById("skrhirebtn").addEventListener("click", function() {
-    if ((population + lumberjacks + stokers) <= maxpopulation) {
+    if ((population + lumberjacks + stokers + farmers) <= maxpopulation) {
         if (population > 0) {
             stokers += 1
             population -= 1
@@ -51,6 +57,24 @@ document.getElementById("skrfirebtn").addEventListener("click", function() {
         stokers -= 1
         population += 1
         document.getElementById("skrtext").innerHTML = "Stokers: (" + stokers + ")"
+        document.getElementById("populationtext").innerHTML = "Population: " + population
+    }
+})
+document.getElementById("fmrhirebtn").addEventListener("click", function() {
+    if ((population + lumberjacks + stokers) <= maxpopulation) {
+        if (population > 0) {
+            farmers += 1
+            population -= 1
+            document.getElementById("fmrtext").innerHTML = "Farmers: (" + farmers + ")"
+            document.getElementById("populationtext").innerHTML = "Population: " + population
+        }
+    }
+})
+document.getElementById("fmrfirebtn").addEventListener("click", function() {
+    if (farmers > 0) {
+        farmers -= 1
+        population += 1
+        document.getElementById("fmrtext").innerHTML = "Farmers: (" + farmers + ")"
         document.getElementById("populationtext").innerHTML = "Population: " + population
     }
 })
@@ -145,10 +169,10 @@ function sleep(ms) {
 }
 // Population
 function addpopulation() {
-if ((population + lumberjacks + stokers) < maxpopulation) {
+if ((population + lumberjacks + stokers + farmers) < maxpopulation) {
     population += 1
     populationtext.innerHTML = "Population: " + population
-  } else if ((population + lumberjacks + stokers) >= maxpopulation){
+  } else if ((population + lumberjacks + stokers + farmers) >= maxpopulation){
     population = maxpopulation
     populationtext.innerHTML = "Population: " + population
   }
