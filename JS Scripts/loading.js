@@ -7,5 +7,4 @@ sleep(5000).then(() => {
     tabButtons.forEach(element => {
         element.hidden = false
     });
-    pullData()
 })
