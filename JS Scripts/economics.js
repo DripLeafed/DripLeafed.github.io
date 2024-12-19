@@ -78,7 +78,7 @@ document.getElementById("buyfood").addEventListener("click", function() {
     }
 })
 document.getElementById("promote").addEventListener("click", function() {
-    if ((population + lumberjacks + stokers + farmers + miners) < maxpopulation & (population + lumberjacks + stokers + farmers + miners + 5) <= maxpopulation) {
+    if (getTotalPop() < maxpopulation & (getTotalPop + 5) <= maxpopulation) {
         if (perodons >= 50) {
             perodons -= 50
             population += 5

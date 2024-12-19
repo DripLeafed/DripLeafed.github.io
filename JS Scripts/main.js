@@ -1,3 +1,7 @@
+function getTotalPop() {
+    var s = population + lumberjacks + stokers + farmers + miners + builders
+    return s
+}
 // Fire
 var firehealth = 100
         firetext = document.getElementById("firetext")
@@ -89,11 +93,11 @@ function sleep(ms) {
 }
 // Population
 function addpopulation() {
-if ((population + lumberjacks + stokers + farmers + miners + builders) < maxpopulation) {
+if (getTotalPop() < maxpopulation) {
     population += 1
     tabButtons[2].innerHTML = "(!) Building Station"
     populationtext.innerHTML = "Population: " + population
-  } else if ((population + lumberjacks + stokers + farmers + miners + builders) >= maxpopulation){
+  } else if (getTotalPop() >= maxpopulation){
     population = maxpopulation
     populationtext.innerHTML = "Population: " + population
   }

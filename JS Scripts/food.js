@@ -1,7 +1,7 @@
 food = 1000
 document.getElementById("foodlbl").innerHTML = "Food: " + food
 function drainFood() {
-    food -= 5 * (population + lumberjacks + stokers + farmers + miners + builders)
+    food -= 5 * getTotalPop()
     document.getElementById("foodlbl").innerHTML = "Food: " + food
     if (food <= 0) {
         document.body.style.backgroundColor = "red"

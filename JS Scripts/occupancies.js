@@ -56,7 +56,7 @@ var miners = 0
 var builders = 0
 // Lumberjacks
 document.getElementById("lbghirebtn").addEventListener("click", function() {
-    if ((population + lumberjacks + stokers + farmers + miners + builders) <= maxpopulation) {
+    if (getTotalPop() <= maxpopulation) {
         if (population > 0) {
             lumberjacks += 1
             population -= 1
@@ -75,7 +75,7 @@ document.getElementById("lbgfirebtn").addEventListener("click", function() {
 })
 // Stokers
 document.getElementById("skrhirebtn").addEventListener("click", function() {
-    if ((population + lumberjacks + stokers + farmers + miners + builders) <= maxpopulation) {
+    if (getTotalPop() <= maxpopulation) {
         if (population > 0) {
             stokers += 1
             population -= 1
@@ -94,7 +94,7 @@ document.getElementById("skrfirebtn").addEventListener("click", function() {
 })
 // Farmers
 document.getElementById("fmrhirebtn").addEventListener("click", function() {
-    if ((population + lumberjacks + stokers + farmers + miners + builders) <= maxpopulation) {
+    if (getTotalPop() <= maxpopulation) {
         if (population > 0) {
             farmers += 1
             population -= 1
@@ -113,7 +113,7 @@ document.getElementById("fmrfirebtn").addEventListener("click", function() {
 })
 // Miners
 document.getElementById("mnrhirebtn").addEventListener("click", function() {
-    if ((population + lumberjacks + stokers + farmers + miners + builders) <= maxpopulation) {
+    if (getTotalPop() <= maxpopulation) {
         if (population > 0) {
             miners += 1
             population -= 1
@@ -132,7 +132,7 @@ document.getElementById("mnrfirebtn").addEventListener("click", function() {
 })
 // Builders
 document.getElementById("blrhirebtn").addEventListener("click", function() {
-    if ((population + lumberjacks + stokers + farmers + miners + builders) <= maxpopulation) {
+    if (getTotalPop() <= maxpopulation) {
         if (population > 0) {
             builders += 1
             population -= 1
