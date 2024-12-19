@@ -30,7 +30,7 @@ document.getElementById("forgeiron").addEventListener("click", function() {
     }
 })
 document.getElementById("minegold").addEventListener("click", function() {
-    ironore += 1
+    goldore += 1
     document.getElementById("goldore").innerHTML = "Gold Ore: " + goldore
     document.getElementById("minegold").disabled = true
     sleep(10000).then(() => { document.getElementById("minegold").disabled = false })
