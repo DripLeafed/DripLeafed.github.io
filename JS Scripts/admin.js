@@ -22,5 +22,6 @@ confirm.addEventListener("click", function() {
         goldore = 10000
         food = 10000
         saveData()
+        admin.value = ""
     }
 })
