@@ -1,7 +1,11 @@
 <html>
-    <body onload="pullData()">
+    <body>
         <h5 id="savetext">Data Saved.</h5>
         <div class="tabContainer">
+            <div id="saveloading">
+                <button>Make New Save</button>
+                <button id="load" onclick="pullData(); load();">Load Save</button>
+            </div>
             <div id="tab1">
                 <h3 id="Sh">Small Hut</h3>
                 <button id="stokebtn">Stoke Fire (1.5s)</button>
