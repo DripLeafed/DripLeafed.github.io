@@ -66,7 +66,7 @@ function onClick(btn) {
         woodbtn.disabled = true
         sleep(3000).then(() => { woodbtn.disabled = false })
     } else if (btn == "fire" && wood >= 2 * multi && firehealth < 100) {
-        firehealth += 15
+        firehealth += 15 * multi
         wood -= 2 * multi
         if (firehealth > 100) {
             firehealth = 100
