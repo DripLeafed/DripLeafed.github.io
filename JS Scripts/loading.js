@@ -14,4 +14,5 @@ function load() {
 function newSave() {
     document.getElementsByClassName("savebtns").hidden = true
     document.getElementById("newsavescreen").hidden = false
+    document.getElementById("saveloading").hidden = true
 }
