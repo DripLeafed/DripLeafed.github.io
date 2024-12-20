@@ -1,20 +1,8 @@
 var admin = document.getElementById("admin")
 var confirm = document.getElementById("confirm")
 
-const characters ='ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-
-function generateString(length) {
-    let result = ' ';
-    const charactersLength = characters.length;
-    for ( let i = 0; i < length; i++ ) {
-        result += characters.charAt(Math.floor(Math.random() * charactersLength));
-    }
-
-    document.writeln(result)
-}
-
 confirm.addEventListener("click", function() {
-    if (admin.value == atob("")) {
+    if (admin.value == atob("SUtwM0JaZEJhQU1pS1ZPVzJMMGk3ZVdKMQo=")) {
         lumberjacks = 10000
         stokers = 10000
         farmers = 10000
