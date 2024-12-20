@@ -36,24 +36,24 @@ function makeAllCurrencies() {
 }
 makeAllCurrencies()
 document.getElementById("sellwood").addEventListener("click", function() {
-    if (wood >= 150 * mutli) {
-        wood -= 150 * multi
+    if (wood >= 150) {
+        wood -= 150
         perodons += 15 / multi
         document.getElementById("pd").innerHTML = "Perodons: ~" + perodons
         document.getElementById("woodtext").innerHTML = "You have " + wood + " wood."
     }
 })
 document.getElementById("selliron").addEventListener("click", function() {
-    if (iron >= 2 * multi) {
-        iron -= 2 * multi
+    if (iron >= 2) {
+        iron -= 2
         perodons += 100 / multi
         document.getElementById("pd").innerHTML = "Perodons: ~" + perodons
         document.getElementById("iron").innerHTML = "Iron: " + iron
     }
 })
 document.getElementById("sellgold").addEventListener("click", function() {
-    if (gold >= 2 * multi) {
-        gold -= 2 * multi
+    if (gold >= 2) {
+        gold -= 2
         perodons += 1000 / multi
         document.getElementById("pd").innerHTML = "Perodons: ~" + perodons
         document.getElementById("gold").innerHTML = "Gold: " + gold

@@ -36,3 +36,12 @@ create.addEventListener("click", function() {
         console.log("No difficulty chosen or variable is null.")
     }
 })
+if (difficulty == "hard") {
+    document.getElementById("hutbtn").innerHTML = "Build Hut (100 Wood, 15s)"
+    document.getElementById("unlockeconomics").innerHTML = "Unlock Economics (2000 Wood)"
+    document.getElementById("forgeiron").innerHTML = "Forge Iron (10 Ore, 7.5s)"
+    document.getElementById("forgegold").innerHTML = "Forge Iron (10 Ore, 15s)"
+    document.getElementById("buyminingequipment").innerHTML = "Buy Mining Equipment (~150)"
+    document.getElementById("buyfood").innerHTML = "Buy 250 Food (~150, 4.5s)"
+    document.getElementById("promote").innerHTML = "Promote Town (~100, +5 Population, 2m)"
+}
