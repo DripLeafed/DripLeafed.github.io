@@ -16,7 +16,7 @@ var firehealth = 100
         })
 
         function drainFireHealth() {
-            firehealth -= 5
+            firehealth -= 5 * multi
             firetext.innerHTML = "Fire Health: " + firehealth
             document.getElementById("tabButton1").innerHTML = "Small Hut (" + firehealth + ")"
             if (firehealth <= 0) {
@@ -61,13 +61,13 @@ var population = 0
 // Button Clicks
 function onClick(btn) {
     if (btn == "wood") {
-        wood += 4
+        wood += 4 / multi
         woodtext.innerHTML = "You have " + wood + " wood."
         woodbtn.disabled = true
         sleep(3000).then(() => { woodbtn.disabled = false })
-    } else if (btn == "fire" && wood >= 2 && firehealth < 100) {
+    } else if (btn == "fire" && wood >= 2 * multi && firehealth < 100) {
         firehealth += 15
-        wood -= 2
+        wood -= 2 * multi
         if (firehealth > 100) {
             firehealth = 100
         }
@@ -76,8 +76,8 @@ function onClick(btn) {
         firetext.innerHTML = "Fire Health: " + firehealth
         stokebtn.disabled = true
         sleep(1500).then(() => { stokebtn.disabled = false })
-    } else if (btn == "hut" && wood >= 50) {
-      wood -= 50
+    } else if (btn == "hut" && wood >= 50 * multi) {
+      wood -= 50 * multi
       maxpopulation += 5
       huts += 1
       woodtext.innerHTML = "You have " + wood + " wood."

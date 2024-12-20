@@ -1,33 +1,33 @@
 function lbgWps() {
-    wood += 4 * lumberjacks
+    wood += (4 * lumberjacks) / multi
     woodtext.innerHTML = "You have " + wood + " wood."
 }
 function skrHps() {
-    if (firehealth <= 85 && wood >= 2) {
+    if (firehealth <= 85 && wood >= 2 * multi) {
         firehealth += 15 * stokers
         if (firehealth > 100) {
             firehealth = 100
         }
-        wood -= 2 * stokers
+        wood -= (2 * stokers) * multi
         woodtext.innerHTML = "You have " + wood + " wood."
         firetext.innerHTML = "Fire Health: " + firehealth
         document.getElementById("tabButton1").innerHTML = "Small Hut (" + firehealth + ")"
     }
 }
 function fmrFps() {
-    food += 100 * farmers
+    food += (100 * farmers) / multi
     document.getElementById("foodlbl").innerHTML = "Food: " + food
 }
 function mnrIps() {
     ironore += 3 * miners
     goldore += 3 * miners
-    if (ironore >= 5 * miners) {
+    if (ironore >= (5 * miners) * multi) {
         iron += 1 * miners
-        ironore -= 5 * miners
+        ironore -= (5 * miners) * multi
     }
-    if (goldore >= 5 * miners) {
+    if (goldore >= (5 * miners) * multi) {
         gold += 1 * miners
-        goldore -= 5 * miners
+        goldore -= (5 * miners) * multi
     }
     document.getElementById("ironore").innerHTML = "Iron Ore: " + ironore
     document.getElementById("iron").innerHTML = "Iron: " + iron
@@ -35,9 +35,9 @@ function mnrIps() {
     document.getElementById("gold").innerHTML = "Gold: " + gold
 }
 function blrHps() {
-    if (wood >= 50) {
+    if (wood >= 50 * multi) {
         huts += 1 * builders
-        wood -= 50 * builders
+        wood -= (50 * builders) * multi
         maxpopulation += 5 * builders
         document.getElementById("populationtext").innerHTML = "Population: " + population
         document.getElementById("maxpopulationtext").innerHTML = "Max Population: " + maxpopulation

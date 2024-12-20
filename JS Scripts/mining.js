@@ -18,8 +18,8 @@ document.getElementById("mineiron").addEventListener("click", function() {
     sleep(5000).then(() => { document.getElementById("mineiron").disabled = false })
 })
 document.getElementById("forgeiron").addEventListener("click", function() {
-    if (ironore >= 5) {
-        ironore -= 5
+    if (ironore >= 5 * multi) {
+        ironore -= 5 * multi
         document.getElementById("ironore").innerHTML = "Iron Ore: " + ironore
         document.getElementById("forgeiron").disabled = true
         sleep(7500).then(() => { 
@@ -36,8 +36,8 @@ document.getElementById("minegold").addEventListener("click", function() {
     sleep(10000).then(() => { document.getElementById("minegold").disabled = false })
 })
 document.getElementById("forgegold").addEventListener("click", function() {
-    if (goldore >= 5) {
-        goldore -= 5
+    if (goldore >= 5 * multi) {
+        goldore -= 5 * multi
         document.getElementById("goldore").innerHTML = "Gold Ore: " + goldore
         document.getElementById("forgegold").disabled = true
         sleep(15000).then(() => { 

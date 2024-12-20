@@ -17,6 +17,7 @@ document.getElementById("savetext").hidden = true
             var blrsave = localStorage.getItem("blrsave")
             var goldsave = localStorage.getItem("goldsave")
             var goldoresave = localStorage.getItem("goldoresave")
+            var difficultysave = localStorage.getItem("difficultysave")
             var firstcheck = localStorage.getItem("firstcheck")
             // Reset Data
             function resetData() {
@@ -60,6 +61,7 @@ document.getElementById("savetext").hidden = true
                 localStorage.setItem("blrsave", JSON.stringify(builders))
                 localStorage.setItem("goldsave", JSON.stringify(gold))
                 localStorage.setItem("goldoresave", JSON.stringify(goldore))
+                localStorage.setItem("difficultysave", difficulty)
                 localStorage.setItem("firstcheck", ".")
                 document.getElementById("savetext").hidden = false
                 sleep(3000).then(() => {
@@ -87,6 +89,7 @@ document.getElementById("savetext").hidden = true
                 localStorage.getItem("firstcheck")
                 localStorage.getItem("goldoresave")
                 localStorage.getItem("goldsave")
+                localStorage.getItem("difficultysave")
                 lumberjacks = Number(lbgsave)
                 stokers = Number(skrsave)
                 population = Number(popsave)
@@ -105,6 +108,7 @@ document.getElementById("savetext").hidden = true
                 builders = Number(blrsave)
                 gold = Number(goldsave)
                 goldore = Number(goldoresave)
+                difficulty = difficultysave
                 document.getElementById("lbgtext").innerHTML = "Lumberjacks: (" + lumberjacks + ")"
                 document.getElementById("skrtext").innerHTML = "Stokers: (" + stokers + ")"
                 document.getElementById("populationtext").innerHTML = "Population: " + population
@@ -129,6 +133,11 @@ document.getElementById("savetext").hidden = true
                 if (unlocked1 == true) {
                     document.getElementById("buyminingequipment").hidden = true
                     tabButtons[3].disabled = false
+                }
+                if (difficulty == "normal") {
+                    multi = 1
+                } else if (difficulty == "hard") {
+                    multi = 2
                 }
                 if (firstcheck != ".") {
                     resetData()

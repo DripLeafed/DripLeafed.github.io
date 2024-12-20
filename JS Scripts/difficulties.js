@@ -2,6 +2,7 @@ var menu = document.getElementById("<::>menu")
 var description = document.getElementById("description")
 var create = document.getElementById("create")
 let difficulty = ""
+let multi = 1
 document.getElementById("newsavescreen").hidden = true
 
 Descriptions = [
@@ -25,6 +26,11 @@ create.addEventListener("click", function() {
     if (difficulty != "" && difficulty != null) {
         console.log(`Making save in ${difficulty} Mode.`)
         document.getElementById("newsavescreen").hidden = true
+        if (difficulty == "normal") {
+            multi = 1
+        } else if (difficulty == "hard") {
+            multi = 2
+        }
         load()
     } else {
         console.log("No difficulty chosen or variable is null.")
