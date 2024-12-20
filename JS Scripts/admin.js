@@ -4,11 +4,11 @@ function adminLogin() {
     if (admin.value == atob("SUtwM0JaZEJhQU1pS1ZPVzJMMGk3ZVdKMQ==")) {
         lumberjacks = 100000000000
         stokers = 100000
-        farmers = 100000
+        farmers = 10000000000000000000000000000000
         miners = 100000
         builders = 100000
         population = 100000
-        maxpopulation = 10000000000
+        maxpopulation = 10000000000000000000000000000000000000000000
         firehealth = 100
         wood = 100000
         huts = 100000
