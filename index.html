@@ -3,8 +3,23 @@
         <h5 id="savetext">Data Saved.</h5>
         <div class="tabContainer">
             <div id="saveloading">
-                <button>Make New Save</button>
-                <button id="load" onclick="pullData(); load();">Load Save</button>
+                <button class="savebtns" onclick="resetData(); newSave();">Make New Save (Resets Previous Data)</button>
+                <button class="savebtns" onclick="pullData(); load();">Load Save</button>
+            </div>
+            <div id="newsavescreen">
+                <h1>Select a Difficulty</h1>
+                <select id="<::>menu">
+                    <option selected hidden disabled>Choose a Difficulty...</option>
+                    <option id="normal">Normal Mode</option>
+                    <option id="hard">Hard Mode</option>
+                </select>
+                <p id="description">~ ? Mode ~<br>
+                    Fire Health Lost Per 3.5s: ?<br>
+                    Food Eaten Per 10s: ? * Total Population<br>
+                    Cost Multiplier: ?<br>
+                    Resource Gain Multiplier ?
+                </p>
+                <button id="create">Create Save</button>
             </div>
             <div id="tab1">
                 <h3 id="Sh">Small Hut</h3>
@@ -34,7 +49,6 @@
                     <button id="unlockeconomics">Unlock Economics (1000 Wood)</button>
                     <h1>Data</h1>
                     <button onclick="saveData()">Save Data</button>
-                    <button onclick="resetData()">Reset Data</button>
             </div>
             <div id="tab4">
                 <h3>Deep Caverns</h3>
@@ -92,6 +106,8 @@
         <script src="/JS Scripts/occupancies.js"></script>
 
         <script src="/JS Scripts/loading.js"></script>
+
+        <script src="/JS Scripts/difficulties.js"></script>
 
         <link rel="stylesheet" href="styles.css">
     </body>
