@@ -22,6 +22,7 @@ function adminLogin() {
         goldore = 10000
         food = 10000
         saveData()
+        loadData()
         admin.value = ""
     }
 })
