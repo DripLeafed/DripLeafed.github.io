@@ -29,3 +29,16 @@ setInterval(addpopulation, 30000)
                     }
                 });
             }
+            addEventListener("onkeydown", navigate)
+            function navigate(e) {
+                // Left
+                if (e.code == 37) {
+                    var currentTab = tabButtons[document.getElementsByClassName("tabButtonON").indexOf()]
+                    var previousTab = tabButtons[document.getElementsByClassName("tabButtonON").indexOf() - 1]
+                    simulate("click", previousTab)
+                } else if (e.code == 39) {
+                    var currentTab = tabButtons[document.getElementsByClassName("tabButtonON").indexOf()]
+                    var nextTab = tabButtons[document.getElementsByClassName("tabButtonON").indexOf() + 1]
+                    simulate("click", nextTab)
+                }
+            }
