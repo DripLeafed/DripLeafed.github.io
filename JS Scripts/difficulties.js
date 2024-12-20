@@ -2,6 +2,7 @@ var menu = document.getElementById("<::>menu")
 var description = document.getElementById("description")
 var create = document.getElementById("create")
 let difficulty = ""
+document.getElementById("newsavescreen").hidden = true
 
 Descriptions = [
     "~ Normal Mode ~\n\
