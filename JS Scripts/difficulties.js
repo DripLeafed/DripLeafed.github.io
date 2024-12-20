@@ -40,6 +40,9 @@ create.addEventListener("click", function() {
             document.getElementById("buyminingequipment").innerHTML = "Buy Mining Equipment (~150)"
             document.getElementById("buyfood").innerHTML = "Buy 250 Food (~150, 4.5s)"
             document.getElementById("promote").innerHTML = "Promote Town (~100, +5 Population, 2m)"
+            document.getElementById("sellwood").innerHTML = "Sell 150 Wood (+7.5 Perodons)"
+            document.getElementById("selliron").innerHTML = "Sell 2 Iron (+50 Perodons)"
+            document.getElementById("sellgold").innerHTML = "Sell 2 Gold (+500 Perodons)"
         }
     } else {
         console.log("No difficulty chosen or variable is null.")
