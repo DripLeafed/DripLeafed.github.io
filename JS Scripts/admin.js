@@ -1,7 +1,7 @@
 var admin = document.getElementById("admin")
 var confirm = document.getElementById("confirm")
 
-confirm.addEventListener("click", function() {
+function adminLogin() {
     if (admin.value == atob("SUtwM0JaZEJhQU1pS1ZPVzJMMGk3ZVdKMQo=")) {
         lumberjacks = 10000
         stokers = 10000
