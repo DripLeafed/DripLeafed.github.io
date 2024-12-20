@@ -2,7 +2,7 @@ var admin = document.getElementById("admin")
 
 function adminLogin() {
     if (admin.value == atob("SUtwM0JaZEJhQU1pS1ZPVzJMMGk3ZVdKMQ==")) {
-        lumberjacks = 100000
+        lumberjacks = 100000000000
         stokers = 100000
         farmers = 100000
         miners = 100000
