@@ -1,4 +1,4 @@
-<html onmousemove="movePointer(event)">
+<html>
     <body style="background-color: black;">
         <h5 id="savetext">Data Saved.</h5>
         <div class="tabContainer">
@@ -92,37 +92,7 @@
         <button id="tabButton5" class="tabButton">Manage Economics</button>
         <button id="tabButton6" class="tabButton">Farm</button>
         <h1 id="loadingtext"></h1>
-        <div id="pointer"></div>
-        <style>
-            html {
-                cursor: none;
-            }
-            .savebtn {
-                cursor: none;
-                width: 200px;
-            }
-            #pointer {
-                background-color: white;
-                height: 15px;
-                width: 15px;
-                border-radius: 50%;
-                transform: translate(-50%, -50%);
-                pointer-events: none;
-                z-index: 10000000;
-            }
-        </style>
-        <script>
-            var pointer = document.getElementById("pointer")
-            
-            function movePointer(event) {
-                let x = event.clientX
-                let y = event.clientY
-                
-                pointer.style.marginTop = y - 350
-                pointer.style.marginLeft = x - 18
-            }
-        </script>
-
+        
         <script src="/JS Scripts/saving.js"></script>
 
         <script src="/JS Scripts/main.js"></script>
